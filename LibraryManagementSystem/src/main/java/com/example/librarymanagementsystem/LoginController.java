@@ -30,21 +30,23 @@ public class LoginController {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from login");
 
-
+            boolean login_Status= false;
             while(resultSet.next()){
                 String x = resultSet.getString("UserName");
                 String y =resultSet.getString("Password");
-//                System.out.println(x);
-//                System.out.println(y);
-                if(UserName.equals(x) && Password.equals(y)){
-                    //lblStatus.setText("Login Success");
-                    String z =resultSet.getString("Role");
-                    if(z.equals("Admin")){
-
+                System.out.println(x);
+                System.out.println(y);
+                if(UserName.equals(x) && Password.equals(y)) {
+                    login_Status =true;
+                    lblStatus.setText("Login Success");
+                    String z = resultSet.getString("Role");
+                    if (z.equals("Admin")) {
+                        break;
                     }
-                }else{
-                    lblStatus.setText("Invalid UserName or Password");
                 }
+            }
+            if(!login_Status){
+                lblStatus.setText("Invalid userName or Password");
             }
 
             statement.close();

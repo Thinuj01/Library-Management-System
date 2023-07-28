@@ -9,32 +9,32 @@
 
 <AnchorPane fx:id="RegisterPane" prefHeight="800.0" prefWidth="650.0" styleClass="root" stylesheets="@../../../cssStyle/Register.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.RegisterController">
    <children>
-      <TextField fx:id="txtFName" layoutX="182.0" layoutY="209.0" prefHeight="40.0" prefWidth="286.0" promptText="First Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+      <TextField fx:id="txtFName" layoutX="182.0" layoutY="209.0" prefHeight="40.0" prefWidth="286.0" promptText="First Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font name="MS Reference Sans Serif" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtLName" layoutX="182.0" layoutY="264.0" prefHeight="40.0" prefWidth="286.0" promptText="Last Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+      <TextField fx:id="txtLName" layoutX="182.0" layoutY="264.0" prefHeight="40.0" prefWidth="286.0" promptText="Last Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font name="MS Reference Sans Serif" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtBOD" layoutX="182.0" layoutY="322.0" prefHeight="40.0" prefWidth="286.0" promptText="BOD(YYYY-MM-DD)" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+      <TextField fx:id="txtBOD" layoutX="182.0" layoutY="322.0" prefHeight="40.0" prefWidth="286.0" promptText="BOD(YYYY-MM-DD)" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font name="MS Reference Sans Serif" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtUserName" layoutX="182.0" layoutY="410.0" prefHeight="40.0" prefWidth="286.0" promptText="User Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+      <TextField fx:id="txtUserName" layoutX="182.0" layoutY="410.0" prefHeight="40.0" prefWidth="286.0" promptText="User Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font name="MS Reference Sans Serif" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtPassword" layoutX="182.0" layoutY="466.0" prefHeight="40.0" prefWidth="286.0" promptText="Password" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+      <TextField fx:id="txtPassword" layoutX="182.0" layoutY="466.0" prefHeight="40.0" prefWidth="286.0" promptText="Password" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font name="MS Reference Sans Serif" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtRePassword" layoutX="182.0" layoutY="520.0" prefHeight="40.0" prefWidth="286.0" promptText="Retype Password" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+      <TextField fx:id="txtRePassword" layoutX="182.0" layoutY="520.0" prefHeight="40.0" prefWidth="286.0" promptText="Retype Password" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font name="MS Reference Sans Serif" size="14.0" />
          </font>
