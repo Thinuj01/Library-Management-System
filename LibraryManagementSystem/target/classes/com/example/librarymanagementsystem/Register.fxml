@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="RegisterPane" prefHeight="800.0" prefWidth="650.0" styleClass="root" stylesheets="@../../../cssStyle/Register.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.RegisterController">
+   <children>
+      <TextField fx:id="txtFName" layoutX="182.0" layoutY="209.0" prefHeight="40.0" prefWidth="286.0" promptText="First Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtLName" layoutX="182.0" layoutY="264.0" prefHeight="40.0" prefWidth="286.0" promptText="Last Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtBOD" layoutX="182.0" layoutY="322.0" prefHeight="40.0" prefWidth="286.0" promptText="BOD(YYYY-MM-DD)" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtUserName" layoutX="182.0" layoutY="410.0" prefHeight="40.0" prefWidth="286.0" promptText="User Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPassword" layoutX="182.0" layoutY="466.0" prefHeight="40.0" prefWidth="286.0" promptText="Password" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtRePassword" layoutX="182.0" layoutY="520.0" prefHeight="40.0" prefWidth="286.0" promptText="Retype Password" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </TextField>
+      <RadioButton fx:id="rdbAdmin" layoutX="243.0" layoutY="604.0" mnemonicParsing="false" text="Admin" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="tgRole" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rdbUser" layoutX="338.0" layoutY="604.0" mnemonicParsing="false" selected="true" text="User" textFill="WHITE" toggleGroup="$tgRole">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="182.0" layoutY="604.0" text="Role :" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="247.0" layoutY="657.0" mnemonicParsing="false" onAction="#onClickRegistered" prefHeight="25.0" prefWidth="156.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" text="Register" textFill="#120433">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblWarning" layoutX="297.0" layoutY="573.0" prefHeight="18.0" prefWidth="57.0" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

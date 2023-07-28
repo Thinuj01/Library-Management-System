@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="root" stylesheets="@../../../cssStyle/Login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.LoginController">
+   <children>
+      <Label layoutX="603.0" layoutY="218.0" prefHeight="39.0" prefWidth="75.0" text="Log In" textFill="WHITE">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUserName" layoutX="489.0" layoutY="460.0" prefHeight="48.0" prefWidth="304.0" promptText="User name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPassword" layoutX="488.0" layoutY="525.0" prefHeight="48.0" prefWidth="304.0" promptText="Password" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Button layoutX="561.0" layoutY="594.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" styleClass="BtnLogin" stylesheets="@../../../cssStyle/Login.css" text="LOG IN" textFill="#120433">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="597.0" layoutY="684.0" onMouseClicked="#onClickRegister" text="Register Now" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblStatus" contentDisplay="CENTER" layoutX="594.0" layoutY="651.0" prefHeight="21.0" prefWidth="96.0" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

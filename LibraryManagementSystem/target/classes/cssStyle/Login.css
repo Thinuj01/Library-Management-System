@@ -1,0 +1,8 @@
+.root{
+-fx-background-image:url('Login.jpg');
+-fx-background-size:cover;
+}
+
+.BtnLogin:hover{
+    -fx-background-color:#123433;
+}
