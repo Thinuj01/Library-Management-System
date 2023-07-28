@@ -16,6 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `book_details`
+--
+
+DROP TABLE IF EXISTS `book_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `book_details` (
+  `Book_ID` varchar(6) NOT NULL,
+  `Book_Name` varchar(45) NOT NULL,
+  `Author` varchar(45) NOT NULL,
+  `Category` varchar(45) NOT NULL,
+  `Price` varchar(45) DEFAULT NULL,
+  `NoOfPages` varchar(45) DEFAULT NULL,
+  `Location` varchar(45) NOT NULL,
+  PRIMARY KEY (`Book_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `book_details`
+--
+
+LOCK TABLES `book_details` WRITE;
+/*!40000 ALTER TABLE `book_details` DISABLE KEYS */;
+INSERT INTO `book_details` VALUES ('A0002','SQL Programming','Thinuja','Programming','2000.00','200','P05'),('A0003','Histry of Srilanka','John Smith','Geogrphy','1500.00','500','G26'),('A012','Jana Kawi','Senith Dakshina','others','500.00','100','O15'),('A028','Madol duwa','Martin Wikramasinhe','nowel','510.00','470','N09'),('A042','Martin Loother','John Smith','Characteristc','2100.00','265','C024'),('B003','Bio Systems','Henry Jakson','Biology','4999.00','2000','B036');
+/*!40000 ALTER TABLE `book_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `login`
 --
 
@@ -54,4 +83,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-28  7:25:25
+-- Dump completed on 2023-07-29  2:09:11
