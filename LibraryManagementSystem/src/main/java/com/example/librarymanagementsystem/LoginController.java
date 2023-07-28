@@ -3,6 +3,7 @@ package com.example.librarymanagementsystem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,17 +15,19 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class LoginController {
-   @FXML
+    public static String UserName;
+    @FXML
     private TextField txtUserName;
     @FXML
     private TextField txtPassword;
     @FXML
     private Label lblStatus;
-
+    @FXML
+    private AnchorPane AdminPane;
     @FXML
     protected void onClickLogin(){
         try {
-            String UserName = txtUserName.getText();
+            UserName = txtUserName.getText();
             String Password = txtPassword.getText();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
             Statement statement = connection.createStatement();
@@ -38,9 +41,18 @@ public class LoginController {
                 System.out.println(y);
                 if(UserName.equals(x) && Password.equals(y)) {
                     login_Status =true;
-                    lblStatus.setText("Login Success");
                     String z = resultSet.getString("Role");
                     if (z.equals("Admin")) {
+                        Stage stage;
+                        stage =(Stage) AdminPane.getScene().getWindow();
+                        stage.close();
+                        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
+                        Scene scene2 = new Scene(fxmlLoader.load(), 1280, 800);
+                        Stage stage2 = new Stage();
+                        stage2.setTitle("Admin_Interface");
+                        stage2.setScene(scene2);
+                        stage2.show();
+
                         break;
                     }
                 }
