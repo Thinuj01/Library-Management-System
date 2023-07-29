@@ -6,11 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -55,6 +53,10 @@ public class AdminInterfaceController implements Initializable {
 
     @FXML
     private AnchorPane AdminPane;
+
+
+    @FXML
+    private TextField lblSearch;
 
 
     @FXML
@@ -107,21 +109,7 @@ public class AdminInterfaceController implements Initializable {
     private ResultSet rs=null;
     public ObservableList<Book> data;
 
-//    try
-//    {
-//        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
-//        Statement statement = connection.createStatement();
-//        ResultSet resultSet = statement.executeQuery("select * from login");
-//    }catch (Exception e){
-//        e.printStackTrace();
-//    }
-//
-//    ObservableList <Book> list = FXCollections.observableArrayList(
-//            new Book("A0001","Mathematics","Thinuja","Maths","200.00","500","M5"),
-//            new Book("A0002","Commerce","Tiran","Statistic","1000.00","2500","C3"),
-//            new Book("A0003","Science","Nuran","Science","2000.00","1200","S10")
-//
-//    );
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -136,7 +124,7 @@ public class AdminInterfaceController implements Initializable {
             colNoPages.setCellValueFactory(new PropertyValueFactory<Book,String>("NoPages"));
             colLocation.setCellValueFactory(new PropertyValueFactory<Book,String>("Location"));
 
-            loadDataFromDatabase();
+            loadDataFromDatabase("Select  * from book_details");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -144,14 +132,42 @@ public class AdminInterfaceController implements Initializable {
 
     }
 
-    public void loadDataFromDatabase() throws SQLException {
-        pst = con.prepareStatement("Select  * from book_details");
+    public void loadDataFromDatabase(String Sql) throws SQLException {
+        pst = con.prepareStatement(Sql);
         rs = pst.executeQuery();
         while(rs.next()){
             data.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(6),rs.getString(7)));
 
         }
         BookTable.setItems(data);
+        Search();
+    }
+
+    public void Search() {
+        lblSearch.setOnKeyReleased(e ->{
+            if(lblSearch.getText().equals("")){
+                try {
+                    loadDataFromDatabase("Select  * from book_details");
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }else{
+                data.clear();
+                String sql = "Select * from book_details where Book_ID Like \'%"+lblSearch.getText()+"%\' "+"UNION Select * from book_details where Book_Name Like \'%"+lblSearch.getText()+"%\' "
+                        +"UNION Select * from book_details where Author Like \'%"+lblSearch.getText()+"%\' "+"UNION Select * from book_details where Category Like \'%"+lblSearch.getText()+"%\' "
+                        +"UNION Select * from book_details where Price Like \'%"+lblSearch.getText()+"%\' "+"UNION Select * from book_details where NoOfPages Like \'%"+lblSearch.getText()+"%\' "
+                        +"UNION Select * from book_details where Location Like \'%"+lblSearch.getText()+"%\' ";
+                try {
+                    pst = con.prepareStatement(sql);
+                    rs=pst.executeQuery();
+                    while(rs.next()){
+                        data.add(new Book(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(6),rs.getString(7 )));
+                    }
+                }catch (Exception a){
+                    a.printStackTrace();
+                }
+            }
+        });
     }
 
 

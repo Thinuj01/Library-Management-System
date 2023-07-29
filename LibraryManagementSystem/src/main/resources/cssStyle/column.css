@@ -1,6 +1,6 @@
 .table-cell{
-    -fx-background-color:rgb(18,4,51);
-    -fx-text-fill:white;
+    -fx-background-color:transparent;
+    -fx-text-fill:#120433;
     -fx-font-size:18;
 }
 
@@ -10,6 +10,5 @@
 
 .table-view .column-header .label{
   -fx-text-fill: #120433;
-  -fx-background-color:white;
-  -fx-font-size:16;
+  -fx-font-size:18;
 }
