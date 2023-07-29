@@ -147,6 +147,7 @@ public class AdminInterfaceController implements Initializable {
         lblSearch.setOnKeyReleased(e ->{
             if(lblSearch.getText().equals("")){
                 try {
+                    data.clear();
                     loadDataFromDatabase("Select  * from book_details");
                 } catch (SQLException ex) {
                     ex.printStackTrace();
