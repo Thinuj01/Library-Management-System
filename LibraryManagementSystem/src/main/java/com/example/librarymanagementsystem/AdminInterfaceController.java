@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -30,28 +31,32 @@ public class AdminInterfaceController implements Initializable {
     private TableView<Book> BookTable;
 
     @FXML
-    private TableColumn<Book,String> colBookID;
+    public TableColumn<Book,String> colBookID;
 
     @FXML
-    private TableColumn<Book,String> colBookName;
+    public TableColumn<Book,String> colBookName;
 
     @FXML
-    private TableColumn<Book,String> colAuthor;
+    public TableColumn<Book,String> colAuthor;
 
     @FXML
-    private TableColumn<Book,String> colCategory;
+    public TableColumn<Book,String> colCategory;
 
     @FXML
-    private TableColumn<Book,String> colPrice;
+    public TableColumn<Book,String> colPrice;
 
     @FXML
-    private TableColumn<Book,String> colNoPages;
+    public TableColumn<Book,String> colNoPages;
 
     @FXML
-    private TableColumn<Book,String> colLocation;
+    public TableColumn<Book,String> colLocation;
+
+    public static String RBookID,RBookName,RAuthor,RCategory,RPrice,RNoPages,RLocation;
 
     @FXML
     private AnchorPane AdminPane;
+
+
     @FXML
     protected void OnclickAddBook() {
         try{
@@ -61,7 +66,7 @@ public class AdminInterfaceController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddBook.fxml"));
             Scene scene3 = new Scene(fxmlLoader.load(), 650, 800);
             Stage stage3 = new Stage();
-            stage3.setTitle("Admin_Interface");
+            stage3.setTitle("Add Book");
             stage3.setScene(scene3);
             stage3.show();
         }
@@ -70,10 +75,37 @@ public class AdminInterfaceController implements Initializable {
         }
     }
 
+    public static Integer index;
+
+    @FXML
+    protected void OnclickModify() throws IOException {
+        index = BookTable.getSelectionModel().getSelectedIndex();
+        RBookID = (colBookID.getCellData(AdminInterfaceController.index).toString());
+        RBookName = (colBookName.getCellData(AdminInterfaceController.index).toString());
+        RAuthor = (colAuthor.getCellData(AdminInterfaceController.index).toString());
+        RCategory = (colCategory.getCellData(AdminInterfaceController.index).toString());
+        RPrice = (colPrice.getCellData(AdminInterfaceController.index).toString());
+        RNoPages = (colNoPages.getCellData(AdminInterfaceController.index).toString());
+        RLocation = (colLocation.getCellData(AdminInterfaceController.index).toString());
+
+        if(index<=-1){
+            return;
+        }
+        Stage stage;
+        stage =(Stage) AdminPane.getScene().getWindow();
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ModifyBook.fxml"));
+        Scene scene4 = new Scene(fxmlLoader.load(), 650, 800);
+        Stage stage4 = new Stage();
+        stage4.setTitle("Modify Book");
+        stage4.setScene(scene4);
+        stage4.show();
+    }
+
     private Connection con = null;
     private PreparedStatement pst = null;
     private ResultSet rs=null;
-    private ObservableList<Book> data;
+    public ObservableList<Book> data;
 
 //    try
 //    {

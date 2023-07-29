@@ -44,5 +44,10 @@
             <Font name="MS Reference Sans Serif" size="17.0" />
          </font>
       </Button>
+      <Label fx:id="lblLoginStatus" contentDisplay="CENTER" layoutX="497.0" layoutY="549.0" prefHeight="17.0" prefWidth="293.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

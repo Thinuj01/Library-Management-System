@@ -23,6 +23,9 @@ public class LoginController {
     @FXML
     private Label lblStatus;
     @FXML
+    private Label lblLoginStatus;
+
+    @FXML
     private AnchorPane AdminPane;
     @FXML
     protected void onClickLogin(){
@@ -37,8 +40,6 @@ public class LoginController {
             while(resultSet.next()){
                 String x = resultSet.getString("UserName");
                 String y =resultSet.getString("Password");
-                System.out.println(x);
-                System.out.println(y);
                 if(UserName.equals(x) && Password.equals(y)) {
                     login_Status =true;
                     String z = resultSet.getString("Role");
@@ -55,10 +56,13 @@ public class LoginController {
 
                         break;
                     }
+//
                 }
             }
             if(!login_Status){
-                lblStatus.setText("Invalid userName or Password");
+                lblLoginStatus.setText("Invalid userName or Password");
+                txtUserName.clear();
+                txtPassword.clear();
             }
 
             statement.close();

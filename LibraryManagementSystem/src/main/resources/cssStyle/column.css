@@ -1,7 +1,11 @@
 .table-cell{
-    -fx-background-color:#120433;
+    -fx-background-color:rgb(18,4,51);
     -fx-text-fill:white;
     -fx-font-size:18;
+}
+
+.table-view:focused{
+    -fx-background-color:transparent;
 }
 
 .table-view .column-header .label{
