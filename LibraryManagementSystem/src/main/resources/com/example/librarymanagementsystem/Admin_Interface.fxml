@@ -45,5 +45,10 @@
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font></TextField>
+      <Button fx:id="delBookBtn" layoutX="51.0" layoutY="320.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Delete Book" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

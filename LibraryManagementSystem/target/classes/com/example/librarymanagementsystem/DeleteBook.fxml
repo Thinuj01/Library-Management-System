@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="delPane" prefHeight="400.0" prefWidth="500.0" stylesheets="@../../../cssStyle/delete.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.DeleteBookController">
+   <children>
+      <Text layoutX="156.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Book ID :">
+         <font>
+            <Font name="Arial" size="30.0" />
+         </font>
+      </Text>
+      <TextField fx:id="bookID" layoutX="124.0" layoutY="99.0" prefHeight="27.0" prefWidth="253.0" promptText="BookID" style="-fx-background-color: #f0bfb9; -fx-border-color: #0a0a0a; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff; -fx-background-radius: 30;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button fx:id="delBtn" layoutX="55.0" layoutY="317.0" mnemonicParsing="false" onAction="#onclickDelBook" prefHeight="35.0" prefWidth="124.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" stylesheets="@../../../cssStyle/AddBook.css" text="Delete" textFill="#f5f5f5">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Text fill="#da0d0d" layoutX="114.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you Delete We can,t Recover!!!">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="29.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are You Agree?">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <RadioButton fx:id="yes" layoutX="203.0" layoutY="228.0" mnemonicParsing="false" onMouseClicked="#enableDelBtn" text="Yes">
+         <toggleGroup>
+            <ToggleGroup fx:id="choice" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="284.0" layoutY="228.0" mnemonicParsing="false" onMouseClicked="#disableDelBtn" selected="true" text="No" toggleGroup="$choice" />
+      <Button fx:id="cancelBtn" layoutX="327.0" layoutY="317.0" mnemonicParsing="false" onAction="#onClickCancel" prefHeight="35.0" prefWidth="137.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" stylesheets="@../../../cssStyle/AddBook.css" text="Cancel" textFill="#f5f5f5">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

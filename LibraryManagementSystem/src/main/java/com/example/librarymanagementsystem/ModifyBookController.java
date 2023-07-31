@@ -52,7 +52,7 @@ public class ModifyBookController implements Initializable {
         String MPrice = txtMPrice.getText();
         String MNoPages = txtMNoPages.getText();
         String MLocation = txtMLocation.getText();
-        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
         Statement statement2 = connection2.createStatement();
         String Sql = "UPDATE book_details SET Book_ID=\""+MBookId+"\",Book_Name=\""+MBookName+"\",Author=\""+MAuthor+"\",Category=\""+
                 MCategory+"\",Price=\""+MPrice+"\",NoOfPages=\""+MNoPages+"\",Location=\""+MLocation+"\" WHERE Book_ID=\""+MBookId+"\"";

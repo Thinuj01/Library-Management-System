@@ -2,6 +2,7 @@ package com.example.librarymanagementsystem;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -76,6 +77,18 @@ public class AdminInterfaceController implements Initializable {
             e.printStackTrace();
         }
     }
+    protected void refreshWindow(){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
+            Scene scene1 = new Scene(fxmlLoader.load(), 1280, 800);
+            Stage stage1 = new Stage();
+            stage1.setTitle("Admin_Interface");
+            stage1.setScene(scene1);
+            stage1.show();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
 
     public static Integer index;
 
@@ -109,12 +122,26 @@ public class AdminInterfaceController implements Initializable {
     private ResultSet rs=null;
     public ObservableList<Book> data;
 
+    @FXML
+    void onClickDelete(ActionEvent event) throws IOException {
+                Stage stage;
+                stage =new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeleteBook.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 500, 400);
+                stage.setTitle("Delete a Book!");
+                stage.setScene(scene);
+                stage.show();
+
+
+
+        }
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             lblProUser.setText(UserName);
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
             data = FXCollections.observableArrayList();
             colBookID.setCellValueFactory(new PropertyValueFactory<Book,String>("BookID"));
             colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("BookName"));
