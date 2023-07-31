@@ -35,6 +35,12 @@ public class AdminInterfaceController implements Initializable {
     private Button logOutBtn;
 
     @FXML
+    private Button deliveryBtn;
+
+    @FXML
+    private Button acceptanceBtn;
+
+    @FXML
     private Button exitBtn;
 
     @FXML
@@ -91,7 +97,7 @@ public class AdminInterfaceController implements Initializable {
             e.printStackTrace();
         }
     }
-    protected void refreshWindow(){
+    /*protected void refreshWindow(){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
             Scene scene1 = new Scene(fxmlLoader.load(), 1280, 800);
@@ -99,6 +105,45 @@ public class AdminInterfaceController implements Initializable {
             stage1.setTitle("Admin_Interface");
             stage1.setScene(scene1);
             stage1.show();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }*/
+
+
+    @FXML
+    void onClickAcceptanceBook(ActionEvent event) {
+        Stage stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Acceptance_Book.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
+            Stage stage1 = new Stage();
+            stage1.setTitle("Acceptance of Book");
+            stage1.setScene(scene);
+            stage1.show();
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+
+
+    }
+
+    @FXML
+    void onClickDeliveryBook(ActionEvent event) {
+        Stage stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Delivery_Book.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(),1280,800);
+            Stage stage1 = new Stage();
+            stage1.setTitle("Delivery of Book");
+            stage1.setScene(scene);
+            stage1.show();
+
         }catch(Exception e){
             System.out.println(e);
         }
@@ -112,7 +157,7 @@ public class AdminInterfaceController implements Initializable {
             stage.close();
         }
         catch(Exception e){
-
+            System.out.println(e);
         }
     }
 
