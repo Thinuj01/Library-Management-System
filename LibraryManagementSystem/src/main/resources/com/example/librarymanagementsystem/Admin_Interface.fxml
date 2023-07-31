@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="AdminPane" prefHeight="800.0" prefWidth="1280.0" styleClass="root" stylesheets="@../../../cssStyle/Admin_Interface.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.AdminInterfaceController">
    <children>
@@ -46,6 +47,26 @@
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font></TextField>
       <Button fx:id="delBookBtn" layoutX="51.0" layoutY="320.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Delete Book" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Text fill="#f5f0f0" layoutX="188.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User_ID:- ">
+         <font>
+            <Font name="MS Reference Sans Serif" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="userIDDisplay" fill="#eeebeb" layoutX="298.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Button fx:id="logOutBtn" layoutX="41.0" layoutY="626.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="51.0" prefWidth="151.0" style="-fx-background-color: #80FF00; -fx-background-radius: 30;" text="LogOut" textAlignment="CENTER" textFill="#030303" wrapText="true">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="exitBtn1" layoutX="41.0" layoutY="692.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="51.0" prefWidth="151.0" style="-fx-background-color: #FC5454; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>

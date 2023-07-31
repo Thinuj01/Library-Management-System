@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 import static com.example.librarymanagementsystem.LoginController.UserName;
+import static com.example.librarymanagementsystem.LoginController.Password;
 
 
 public class AdminInterfaceController implements Initializable {
@@ -28,6 +30,15 @@ public class AdminInterfaceController implements Initializable {
 
     @FXML
     private TableView<Book> BookTable;
+
+    @FXML
+    private Button logOutBtn;
+
+    @FXML
+    private Button exitBtn;
+
+    @FXML
+    private Button BorrowBtn;
 
     @FXML
     public TableColumn<Book,String> colBookID;
@@ -54,6 +65,9 @@ public class AdminInterfaceController implements Initializable {
 
     @FXML
     private AnchorPane AdminPane;
+
+    @FXML
+    private Text userIDDisplay;
 
 
     @FXML
@@ -89,6 +103,43 @@ public class AdminInterfaceController implements Initializable {
             System.out.println(e);
         }
     }
+
+    @FXML
+    void OnClickExit(ActionEvent event) {
+        try{
+            Stage stage;
+            stage = (Stage)AdminPane.getScene().getWindow();
+            stage.close();
+        }
+        catch(Exception e){
+
+        }
+    }
+
+    @FXML
+    void OnClickLogOut(ActionEvent event) {
+        Stage stage;
+        stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
+            stage.setTitle("Hello!");
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+
+    }
+
+    @FXML
+    void onClickMyBorrowBooks(ActionEvent event) {
+        String query= "select * from book_details where Book_ID in (select BookID from user_books where userID = ?)";
+
+    }
+
 
     public static Integer index;
 
@@ -152,6 +203,15 @@ public class AdminInterfaceController implements Initializable {
             colLocation.setCellValueFactory(new PropertyValueFactory<Book,String>("Location"));
 
             loadDataFromDatabase("Select  * from book_details");
+
+           /* Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
+
+            Statement pst =con1.createStatement();
+            ResultSet result = pst.executeQuery("select user_ID from login where UserName="+UserName+" and Password="+Password+"");
+            result.next();
+            userIDDisplay.setText("kasun");
+            pst.close();
+            con1.close();*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
