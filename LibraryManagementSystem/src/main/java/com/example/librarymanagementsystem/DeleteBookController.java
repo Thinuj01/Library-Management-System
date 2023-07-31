@@ -68,7 +68,8 @@ public class DeleteBookController implements Initializable{
         String BID = bookID.getText();
         String url = "jdbc:mysql://localhost:3306/lms";
         String user = "root";
-        String password = "123456789";
+       // String password = "123456789";
+        String password = "Thinuja21033";
         String query = "delete from book_details where Book_ID=?";
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");

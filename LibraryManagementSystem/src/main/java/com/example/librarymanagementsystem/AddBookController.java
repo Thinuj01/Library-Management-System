@@ -39,7 +39,10 @@ public class AddBookController {
     @FXML
     protected void onClickAddBook() throws SQLException, IOException {
         String Sql = "INSERT INTO book_details(Book_ID,Book_Name,Author,Category,Price,NoOfPages,Location) VALUES(?,?,?,?,?,?,?)";
-        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
+        //Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
+        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+
+
         pst = connection2.prepareStatement(Sql);
         pst.setString(1,txtBookID.getText());
         pst.setString(2,txtBookName.getText());

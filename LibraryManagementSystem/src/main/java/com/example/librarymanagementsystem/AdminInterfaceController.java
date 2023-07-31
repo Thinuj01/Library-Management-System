@@ -192,7 +192,8 @@ public class AdminInterfaceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             lblProUser.setText(UserName);
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
+//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
             data = FXCollections.observableArrayList();
             colBookID.setCellValueFactory(new PropertyValueFactory<Book,String>("BookID"));
             colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("BookName"));
