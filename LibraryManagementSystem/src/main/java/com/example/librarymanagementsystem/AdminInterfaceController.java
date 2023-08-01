@@ -199,13 +199,10 @@ public class AdminInterfaceController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 String url = "jdbc:mysql://localhost:3306/lms";
-                String user = "root";
-                String password = "123456789";
-                //String password = "Thinuja21033";
                 String query = "delete from book_details where Book_ID=?";
                 try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection conn = DriverManager.getConnection(url,user,password);
+                    Connection conn = DriverManager.getConnection(url,HelloApplication.DB_USERNAME,HelloApplication.DB_PASSWORD);
                     PreparedStatement pst = conn.prepareStatement(query);
                     pst.setString(1,BookID);
                     pst.executeUpdate();
@@ -231,8 +228,7 @@ public class AdminInterfaceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             lblProUser.setText(UserName);
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
-            //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
             data = FXCollections.observableArrayList();
             colBookID.setCellValueFactory(new PropertyValueFactory<Book,String>("BookID"));
             colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("BookName"));

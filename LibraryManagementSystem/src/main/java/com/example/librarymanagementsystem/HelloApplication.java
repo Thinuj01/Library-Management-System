@@ -8,13 +8,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
+    protected static String DB_USERNAME = "root";
+    protected static String DB_PASSWORD = "123456789";
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+        LoadWindow.loadInterFace("Login.fxml","Hello!",1280, 800);
     }
 
     public static void main(String[] args) {
