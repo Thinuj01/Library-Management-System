@@ -55,12 +55,6 @@ public class LoginController {
                             Stage stage;
                             stage = (Stage) AdminPane.getScene().getWindow();
                             stage.close();
-                           /* FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
-                            Scene scene2 = new Scene(fxmlLoader.load(), 1280, 800);
-                            Stage stage2 = new Stage();
-                            stage2.setTitle("Admin_Interface");
-                            stage2.setScene(scene2);
-                            stage2.show();*/
                             LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
 
                         break;
@@ -70,12 +64,6 @@ public class LoginController {
                         stage = (Stage) AdminPane.getScene().getWindow();
                         stage.close();
                         LoadWindow.loadInterFace("User_Interface.fxml","User_Interface",1280, 800);
-                        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("User_Interface.fxml"));
-                        Scene scene2 = new Scene(fxmlLoader.load(), 1280, 800);
-                        Stage stage2 = new Stage();
-                        stage2.setTitle("User_Interface");
-                        stage2.setScene(scene2);
-                        stage2.show();*/
                     }
 //
                 }
@@ -102,12 +90,6 @@ public class LoginController {
             Stage stage = (Stage)AdminPane.getScene().getWindow();
             stage.close();
             LoadWindow.loadInterFace("Visitor_Interface.fxml","Visitor",1280,800);
-            /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Visitor_Interface.fxml"));
-            Scene scene3 = new Scene(fxmlLoader.load(),1280,800);
-            Stage stage3 = new Stage();
-            stage3.setTitle("Visitor");
-            stage3.setScene(scene3);
-            stage3.show();*/
 
         }catch(Exception e){
             System.out.println(e);
@@ -116,12 +98,6 @@ public class LoginController {
 
     @FXML
     protected void onClickRegister() throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Register.fxml"));
-        Scene scene1 = new Scene(fxmlLoader.load(), 650, 800);
-        Stage stage1 = new Stage();
-        stage1.setTitle("Register");
-        stage1.setScene(scene1);
-        stage1.show();*/
         LoadWindow.loadInterFace("Register.fxml","Register",650, 800);
     }
 

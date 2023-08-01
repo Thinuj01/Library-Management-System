@@ -86,12 +86,6 @@ public class AdminInterfaceController implements Initializable {
             Stage stage;
             stage =(Stage) AdminPane.getScene().getWindow();
             stage.close();
-            /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddBook.fxml"));
-            Scene scene3 = new Scene(fxmlLoader.load(), 650, 800);
-            Stage stage3 = new Stage();
-            stage3.setTitle("Add Book");
-            stage3.setScene(scene3);
-            stage3.show();*/
             LoadWindow.loadInterFace("AddBook.fxml","Add Book",650, 800);
         }
         catch(Exception e){
@@ -104,12 +98,6 @@ public class AdminInterfaceController implements Initializable {
         Stage stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         try{
-           /* FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Acceptance_Book.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 650, 800);
-            Stage stage1 = new Stage();
-            stage1.setTitle("Acceptance of Book");
-            stage1.setScene(scene);
-            stage1.show();*/
             LoadWindow.loadInterFace("Acceptance_Book.fxml","Acceptance of Book",650, 800);
 
         }catch(Exception e){
@@ -126,12 +114,6 @@ public class AdminInterfaceController implements Initializable {
         stage.close();
 
         try{
-           /* FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Delivery_Book.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(),650, 800);
-            Stage stage1 = new Stage();
-            stage1.setTitle("Delivery of Book");
-            stage1.setScene(scene);
-            stage1.show();*/
             LoadWindow.loadInterFace("Delivery_Book.fxml","Delivery of Book",650, 800);
 
 
@@ -158,11 +140,6 @@ public class AdminInterfaceController implements Initializable {
         stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         try{
-            /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Login.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
-            stage.setTitle("Hello!");
-            stage.setScene(scene);
-            stage.show();*/
             LoadWindow.loadInterFace("Login.fxml","Hello!",1280, 800);
         }
         catch(Exception e){
@@ -197,12 +174,6 @@ public class AdminInterfaceController implements Initializable {
         Stage stage;
         stage =(Stage) AdminPane.getScene().getWindow();
         stage.close();
-       /* FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ModifyBook.fxml"));
-        Scene scene4 = new Scene(fxmlLoader.load(), 650, 800);
-        Stage stage4 = new Stage();
-        stage4.setTitle("Modify Book");
-        stage4.setScene(scene4);
-        stage4.show();*/
         LoadWindow.loadInterFace("ModifyBook.fxml","Modify Book",650, 800);
     }
 
@@ -213,13 +184,6 @@ public class AdminInterfaceController implements Initializable {
 
     @FXML
     void onClickDelete(ActionEvent event) throws IOException {
-               /* Stage stage;
-                stage =new Stage();
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeleteBook.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 500, 400);
-                stage.setTitle("Delete a Book!");
-                stage.setScene(scene);
-                stage.show();*/
         index = BookTable.getSelectionModel().getSelectedIndex();
         String BookID = (colBookID.getCellData(AdminInterfaceController.index).toString());
         if(index<=-1){
@@ -250,13 +214,6 @@ public class AdminInterfaceController implements Initializable {
                     Stage stage;
                     stage = (Stage)AdminPane.getScene().getWindow();
                     stage.close();
-
-                    /*FXMLLoader fxmlLoader1 = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
-                    Scene scene1 = new Scene(fxmlLoader1.load(),1280,800);
-                    Stage stage1 = new Stage();
-                    stage1.setTitle("Admin_Interface");
-                    stage1.setScene(scene1);
-                    stage1.show();*/
                     LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
                     }catch(Exception e){
                         System.out.println(e);

@@ -64,12 +64,7 @@ public class ModifyBookController implements Initializable {
         Stage stage;
         stage =(Stage) ModifyBookPane.getScene().getWindow();
         stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
-        Scene scene3 = new Scene(fxmlLoader.load(), 1280, 800);
-        Stage stage3 = new Stage();
-        stage3.setTitle("Admin_Interface");
-        stage3.setScene(scene3);
-        stage3.show();
+        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
 
 
 
