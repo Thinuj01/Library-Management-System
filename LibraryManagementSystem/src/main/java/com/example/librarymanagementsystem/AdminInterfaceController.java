@@ -18,10 +18,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static com.example.librarymanagementsystem.LoginController.UserName;
-import static com.example.librarymanagementsystem.LoginController.Password;
 
 
 public class AdminInterfaceController implements Initializable {
@@ -117,7 +117,7 @@ public class AdminInterfaceController implements Initializable {
         stage.close();
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Acceptance_Book.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
+            Scene scene = new Scene(fxmlLoader.load(), 650, 800);
             Stage stage1 = new Stage();
             stage1.setTitle("Acceptance of Book");
             stage1.setScene(scene);
@@ -138,7 +138,7 @@ public class AdminInterfaceController implements Initializable {
 
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Delivery_Book.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(),1280,800);
+            Scene scene = new Scene(fxmlLoader.load(),650, 800);
             Stage stage1 = new Stage();
             stage1.setTitle("Delivery of Book");
             stage1.setScene(scene);
@@ -220,13 +220,56 @@ public class AdminInterfaceController implements Initializable {
 
     @FXML
     void onClickDelete(ActionEvent event) throws IOException {
-                Stage stage;
+               /* Stage stage;
                 stage =new Stage();
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeleteBook.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 500, 400);
                 stage.setTitle("Delete a Book!");
                 stage.setScene(scene);
-                stage.show();
+                stage.show();*/
+        index = BookTable.getSelectionModel().getSelectedIndex();
+        String BookID = (colBookID.getCellData(AdminInterfaceController.index).toString());
+        if(index<=-1){
+            return;
+        }
+        else{
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Please Confirm");
+            alert.setHeaderText("Please consider Subscribing");
+            alert.setContentText("Please Subscribe so that you will be notified when I release new videos");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                String url = "jdbc:mysql://localhost:3306/lms";
+                String user = "root";
+                String password = "123456789";
+                //String password = "Thinuja21033";
+                String query = "delete from book_details where Book_ID=?";
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection(url,user,password);
+                    PreparedStatement pst = conn.prepareStatement(query);
+                    pst.setString(1,BookID);
+                    pst.executeUpdate();
+                    pst.close();
+                    conn.close();
+                    Stage stage;
+                    stage = (Stage)AdminPane.getScene().getWindow();
+                    stage.close();
+
+                    FXMLLoader fxmlLoader1 = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
+                    Scene scene1 = new Scene(fxmlLoader1.load(),1280,800);
+                    Stage stage1 = new Stage();
+                    stage1.setTitle("Admin_Interface");
+                    stage1.setScene(scene1);
+                    stage1.show();
+                    }catch(Exception e){
+                        System.out.println(e);
+                    }
+
+            }
+        }
 
 
 
@@ -237,8 +280,8 @@ public class AdminInterfaceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             lblProUser.setText(UserName);
-//            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
+            //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
             data = FXCollections.observableArrayList();
             colBookID.setCellValueFactory(new PropertyValueFactory<Book,String>("BookID"));
             colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("BookName"));

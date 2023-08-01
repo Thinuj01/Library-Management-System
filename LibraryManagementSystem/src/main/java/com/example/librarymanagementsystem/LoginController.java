@@ -39,8 +39,8 @@ public class LoginController {
         try {
             UserName = txtUserName.getText();
             Password = txtPassword.getText();
-            //Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
+            //Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from login");
 

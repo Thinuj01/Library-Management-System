@@ -71,12 +71,12 @@
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="delBookBtn1" layoutX="47.0" layoutY="417.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="40.0" prefWidth="233.0" style="-fx-background-color: #DF2DF3; -fx-background-radius: 30;" text="Delivery of book" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="deliveryBtn" layoutX="47.0" layoutY="417.0" mnemonicParsing="false" onAction="#onClickDeliveryBook" prefHeight="40.0" prefWidth="233.0" style="-fx-background-color: #DF2DF3; -fx-background-radius: 30;" text="Delivery of book" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="delBookBtn11" layoutX="51.0" layoutY="471.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="40.0" prefWidth="233.0" style="-fx-background-color: #DF2DF3; -fx-background-radius: 30;" text="Acceptance of books." textFill="WHITE">
+      <Button fx:id="acceptanceBtn" layoutX="51.0" layoutY="471.0" mnemonicParsing="false" onAction="#onClickAcceptanceBook" prefHeight="40.0" prefWidth="233.0" style="-fx-background-color: #DF2DF3; -fx-background-radius: 30;" text="Acceptance of books" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
