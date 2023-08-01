@@ -36,6 +36,9 @@ public class RegisterController {
     @FXML
     private AnchorPane RegisterPane;
     @FXML
+    public void onClickBack(){}
+
+    @FXML
     protected void onClickRegistered() throws SQLException {
 
             String FirstName = txtFName.getText();

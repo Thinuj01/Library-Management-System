@@ -35,6 +35,9 @@ public class AddBookController {
     @FXML
     private AnchorPane AddBookPane;
 
+    @FXML
+    public void onClickBack(){}
+
     private PreparedStatement pst = null;
     @FXML
     protected void onClickAddBook() throws SQLException, IOException {

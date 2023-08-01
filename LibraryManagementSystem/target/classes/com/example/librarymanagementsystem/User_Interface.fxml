@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -27,10 +29,17 @@
             <TableColumn fx:id="colLocation" prefWidth="111.0" text="Location" />
         </columns>
       </TableView>
-      <Button fx:id="logOutBtn" layoutX="31.0" layoutY="616.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="51.0" prefWidth="151.0" style="-fx-background-color: #80FF00; -fx-background-radius: 30;" text="LogOut" textAlignment="CENTER" textFill="#030303" wrapText="true">
+      <Button fx:id="logOutBtn" layoutX="369.0" layoutY="123.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="23.0" prefWidth="47.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" textAlignment="CENTER" textFill="#030303" wrapText="true">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
       <Label alignment="CENTER" layoutX="909.0" layoutY="179.0" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: #3B8481; -fx-background-radius: 25;" text="    Search" textFill="WHITE">
          <font>
@@ -41,15 +50,22 @@
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font></TextField>
-      <Button fx:id="BorrowBtn" layoutX="35.0" layoutY="247.0" mnemonicParsing="false" onAction="#onClickMyBorrowBooks" prefHeight="104.0" prefWidth="142.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="My Borrowed books" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="BorrowBtn" layoutX="14.0" layoutY="244.0" mnemonicParsing="false" onAction="#onClickMyBorrowBooks" prefHeight="44.0" prefWidth="213.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="My Borrowed books" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="exitBtn1" layoutX="31.0" layoutY="682.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="51.0" prefWidth="151.0" style="-fx-background-color: #FC5454; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
+      <Button fx:id="exitBtn1" layoutX="1167.0" layoutY="116.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="44.0" prefWidth="42.0" style="-fx-background-color: transparent; -fx-background-radius: 30;" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/shutdowm.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
       <Text fill="#f5f0f0" layoutX="196.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User_ID:- ">
          <font>

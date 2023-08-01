@@ -68,9 +68,9 @@
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="picLogOut" fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Img/logout.png" />
+                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/logout.png" />
                </image>
             </ImageView>
          </graphic>
@@ -80,9 +80,9 @@
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="picExit" fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../Img/shutdown.png" />
+                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/shutdown.png" />
                </image>
             </ImageView>
          </graphic>

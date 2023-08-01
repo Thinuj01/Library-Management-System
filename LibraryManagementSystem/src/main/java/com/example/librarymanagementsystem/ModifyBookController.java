@@ -41,6 +41,9 @@ public class ModifyBookController implements Initializable {
     @FXML
     private TextField txtMLocation;
 
+    @FXML
+    public void onClickBack(){}
+
 
 
     @FXML
