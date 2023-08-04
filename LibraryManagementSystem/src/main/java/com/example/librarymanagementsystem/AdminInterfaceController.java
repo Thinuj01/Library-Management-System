@@ -119,7 +119,7 @@ public class AdminInterfaceController implements Initializable {
         stage.close();
 
         try{
-            LoadWindow.loadInterFace("IssueBook.fxml","Issuing Book",650, 800);
+            LoadWindow.loadInterFace("issueBooks.fxml","Issuing Book",900, 650);
 
 
         }catch(Exception e){
