@@ -23,6 +23,7 @@ import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static com.example.librarymanagementsystem.LoginController.Password;
 import static com.example.librarymanagementsystem.LoginController.UserName;
 
 
@@ -102,7 +103,7 @@ public class AdminInterfaceController implements Initializable {
         Stage stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         try{
-            LoadWindow.loadInterFace("Acceptance_Book.fxml","Acceptance of Book",650, 800);
+            LoadWindow.loadInterFace("ReturnBook.fxml","Returning Book",650, 800);
 
         }catch(Exception e){
             System.out.println(e);
@@ -118,7 +119,7 @@ public class AdminInterfaceController implements Initializable {
         stage.close();
 
         try{
-            LoadWindow.loadInterFace("Delivery_Book.fxml","Delivery of Book",650, 800);
+            LoadWindow.loadInterFace("IssueBook.fxml","Issuing Book",650, 800);
 
 
         }catch(Exception e){
@@ -243,17 +244,21 @@ public class AdminInterfaceController implements Initializable {
             colLocation.setCellValueFactory(new PropertyValueFactory<Book,String>("Location"));
 
             loadDataFromDatabase("Select  * from book_details");
-
-           /* Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "123456789");
-
-            Statement pst =con1.createStatement();
-            ResultSet result = pst.executeQuery("select user_ID from login where UserName="+UserName+" and Password="+Password+"");
-            result.next();
-            userIDDisplay.setText("kasun");
-            pst.close();
-            con1.close();*/
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        try{
+            Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms",HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
+            String query = "select user_ID from login where UserName=? and Password=?";
+            PreparedStatement pst = con1.prepareStatement(query);
+            pst.setString(1,UserName);
+            pst.setString(2,Password);
+            ResultSet result = pst.executeQuery();
+            result.next();
+            userIDDisplay.setText(String.valueOf(result.getInt(1)));
+            con1.close();
+        }catch(Exception e){
+            System.out.println(e);
         }
 
 
