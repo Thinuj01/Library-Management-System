@@ -40,7 +40,7 @@ CREATE TABLE `book_details` (
 
 LOCK TABLES `book_details` WRITE;
 /*!40000 ALTER TABLE `book_details` DISABLE KEYS */;
-INSERT INTO `book_details` VALUES ('','','','','','',''),('A0002','SQL Programming','Thinuja','Programming','2000.00','200','P05'),('A028','Madol duwa','Martin Wikramasinhe','nowel','510.00','470','N09'),('A042','Martin Loother','John Smith','Characteristc','2100.00','265','C024');
+INSERT INTO `book_details` VALUES ('A0002','SQL Programming','Thinuja','Programming','2000.00','200','P05'),('A028','Madol duwa','Martin Wikramasinhe','nowel','510.00','470','N09'),('b4','sdvsfv','sdfsdf','fgbfgb','140','50','f5'),('c456','kasun','asdfa','asfaf','100','10','c5'),('s4','hffhf','fhfh','vbvbv','150','10','g4');
 /*!40000 ALTER TABLE `book_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,13 +82,13 @@ DROP TABLE IF EXISTS `user_books`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_books` (
-  `UserID` varchar(6) NOT NULL,
+  `UserId` int NOT NULL,
   `BookID` varchar(6) NOT NULL,
-  `date_of_delivery` date DEFAULT NULL,
+  `date_of_issued` date DEFAULT NULL,
   `date_of_recived` date DEFAULT NULL,
   `amount_of_fine` decimal(5,1) DEFAULT NULL,
   `status` varchar(10) DEFAULT 'pending',
-  PRIMARY KEY (`UserID`,`BookID`)
+  PRIMARY KEY (`UserId`,`BookID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -98,6 +98,7 @@ CREATE TABLE `user_books` (
 
 LOCK TABLES `user_books` WRITE;
 /*!40000 ALTER TABLE `user_books` DISABLE KEYS */;
+INSERT INTO `user_books` VALUES (3,'b4','2023-08-04',NULL,0.0,'pending'),(3,'c456','2023-08-04',NULL,0.0,'pending');
 /*!40000 ALTER TABLE `user_books` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -110,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-31 18:18:47
+-- Dump completed on 2023-08-04 22:47:46
