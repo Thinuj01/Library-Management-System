@@ -22,7 +22,7 @@
             <Font name="MS Reference Sans Serif" size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="txtUserID" layoutX="106.0" layoutY="140.0" prefHeight="22.0" prefWidth="177.0" promptText="User ID" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 20; -fx-alignment: center;" />
+      <TextField fx:id="txtUserID" layoutX="106.0" layoutY="140.0" prefHeight="22.0" prefWidth="177.0" promptText="User ID" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 20; -fx-alignment: center; -fx-text-fill: #ffffff;" />
       <Label fx:id="lblBookID" contentDisplay="CENTER" layoutX="31.0" layoutY="240.0" prefHeight="33.0" prefWidth="171.0" style="-fx-alignment: center;" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="16.0" />

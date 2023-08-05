@@ -87,6 +87,7 @@ public class IssueBooksController implements Initializable {
             Stage stage;
             stage = (Stage) IssuePane.getScene().getWindow();
             stage.close();
+            LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
         }
         catch (Exception e){
             e.printStackTrace();
