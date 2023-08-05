@@ -233,7 +233,7 @@ public class AdminInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            System.out.println("Kasun");
+            System.out.println("Kasun x");
             lblProUser.setText(UserName);
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
             data = FXCollections.observableArrayList();
