@@ -36,6 +36,9 @@ public class RegisterController {
     @FXML
     private AnchorPane RegisterPane;
     @FXML
+    public void onClickBack(){}
+
+    @FXML
     protected void onClickRegistered() throws SQLException {
 
             String FirstName = txtFName.getText();
@@ -56,7 +59,7 @@ public class RegisterController {
                         "VALUES(\"" + FirstName + "\",\"" + LastName + "\",\"" + BOD + "\",\"" + UserName + "\",\"" + Password + "\",\"" + Role + "\")";
                 //System.out.println(sql);
 
-                Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+                Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
                 Statement statement2 = connection2.createStatement();
                 statement2.execute(sql);
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="IssuePane" prefHeight="650.0" prefWidth="900.0" stylesheets="@../../../cssStyle/IssueBooks.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.IssueBooksController">
+   <children>
+      <TableView fx:id="issueBookTable" layoutX="376.0" layoutY="128.0" prefHeight="397.0" prefWidth="516.0">
+        <columns>
+          <TableColumn fx:id="colIbookID" prefWidth="124.0" text="Book ID" />
+          <TableColumn fx:id="colIbookName" prefWidth="246.0" text="Book Name" />
+            <TableColumn fx:id="colILocation" prefWidth="145.0" text="Location" />
+        </columns>
+      </TableView>
+      <Button layoutX="575.0" layoutY="546.0" mnemonicParsing="false" onAction="#onClickAddBook" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #3b8481; -fx-background-radius: 20;" text="Add Book" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtUserID" layoutX="98.0" layoutY="137.0" prefHeight="22.0" prefWidth="177.0" promptText="User ID" />
+      <Label fx:id="lblBookID" contentDisplay="CENTER" layoutX="97.0" layoutY="211.0" prefHeight="33.0" prefWidth="177.0" style="-fx-alignment: center;" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblIssueDate" layoutX="98.0" layoutY="272.0" prefHeight="17.0" prefWidth="177.0" style="-fx-alignment: center;" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblIDstatus" layoutX="88.0" layoutY="182.0" prefHeight="17.0" prefWidth="195.0" style="-fx-alignment: center;" textFill="WHITE" />
+      <Button layoutX="129.0" layoutY="513.0" mnemonicParsing="false" onAction="#onClickIssue" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #3b8481; -fx-background-radius: 20;" text="Issue" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

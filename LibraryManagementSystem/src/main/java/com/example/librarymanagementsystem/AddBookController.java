@@ -35,11 +35,16 @@ public class AddBookController {
     @FXML
     private AnchorPane AddBookPane;
 
+    @FXML
+    public void onClickBack(){}
+
     private PreparedStatement pst = null;
     @FXML
     protected void onClickAddBook() throws SQLException, IOException {
         String Sql = "INSERT INTO book_details(Book_ID,Book_Name,Author,Category,Price,NoOfPages,Location) VALUES(?,?,?,?,?,?,?)";
-        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
+
+
         pst = connection2.prepareStatement(Sql);
         pst.setString(1,txtBookID.getText());
         pst.setString(2,txtBookName.getText());
@@ -55,12 +60,7 @@ public class AddBookController {
             Stage stage;
             stage =(Stage) AddBookPane.getScene().getWindow();
             stage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
-            Scene scene3 = new Scene(fxmlLoader.load(), 1280, 800);
-            Stage stage3 = new Stage();
-            stage3.setTitle("Admin_Interface");
-            stage3.setScene(scene3);
-            stage3.show();
+            LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface",1280, 800);
 
         }
 

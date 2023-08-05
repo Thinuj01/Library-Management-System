@@ -5,8 +5,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="AdminPane" prefHeight="800.0" prefWidth="1280.0" styleClass="root" stylesheets="@../../../cssStyle/Admin_Interface.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.AdminInterfaceController">
    <children>
@@ -26,12 +29,12 @@
             <TableColumn fx:id="colLocation" prefWidth="111.0" text="Location" />
         </columns>
       </TableView>
-      <Button layoutX="51.0" layoutY="192.0" mnemonicParsing="false" onAction="#OnclickAddBook" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Add a New Book" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="248.0" mnemonicParsing="false" onAction="#OnclickAddBook" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Add a New Book" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="254.0" mnemonicParsing="false" onAction="#OnclickModify" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Modify Book Details" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="310.0" mnemonicParsing="false" onAction="#OnclickModify" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Modify Book Details" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
@@ -45,5 +48,54 @@
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font></TextField>
+      <Button fx:id="delBookBtn" layoutX="51.0" layoutY="376.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Delete Book" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Text fill="#ff00dd" layoutX="188.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User_ID:- ">
+         <font>
+            <Font name="MS Reference Sans Serif" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="userIDDisplay" fill="#e7f224" layoutX="304.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="logOutBtn" layoutX="387.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="21.0" prefWidth="47.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" textAlignment="CENTER" textFill="#030303" wrapText="true">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="picLogOut" fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="D:\OneDrive - std.uwu.ac.lk\myPracticals\Java\Library-Management-System\LibraryManagementSystem\src\main\resources\Img\logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="exitBtn1" layoutX="1161.0" layoutY="115.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="49.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-background-radius: 30;" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="picExit" fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="D:\OneDrive - std.uwu.ac.lk\myPracticals\Java\Library-Management-System\LibraryManagementSystem\src\main\resources\Img\shutdown.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="deliveryBtn" layoutX="47.0" layoutY="473.0" mnemonicParsing="false" onAction="#onClickDeliveryBook" prefHeight="40.0" prefWidth="233.0" style="-fx-background-color: #175dad; -fx-background-radius: 30;" text="Issuing Books" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="acceptanceBtn" layoutX="51.0" layoutY="527.0" mnemonicParsing="false" onAction="#onClickAcceptanceBook" prefHeight="40.0" prefWidth="233.0" style="-fx-background-color: #175dad; -fx-background-radius: 30;" text="Return books" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
