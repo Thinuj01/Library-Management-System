@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="RegisterPane" prefHeight="800.0" prefWidth="650.0" styleClass="root" stylesheets="@../../../cssStyle/Register.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.RegisterController">
+<AnchorPane fx:id="RegisterPane" prefHeight="800.0" prefWidth="650.0" styleClass="root" stylesheets="@../../../cssStyle/Register.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.RegisterController">
    <children>
       <TextField fx:id="txtFName" layoutX="182.0" layoutY="209.0" prefHeight="40.0" prefWidth="286.0" promptText="First Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
@@ -67,5 +70,14 @@
             <Font name="MS Reference Sans Serif" size="14.0" />
          </font>
       </Label>
+      <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="62.0" prefWidth="70.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="54.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

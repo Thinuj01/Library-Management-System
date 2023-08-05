@@ -39,7 +39,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="562.0" layoutY="646.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" text="Visitor Log In" textFill="#120433" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="562.0" AnchorPane.rightAnchor="557.0" AnchorPane.topAnchor="646.0">
+      <Button fx:id="visitorBtn" layoutX="562.0" layoutY="646.0" mnemonicParsing="false" onAction="#onClickVisitor" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #ffffff; -fx-background-radius: 30;" text="Visitor Log In" textFill="#120433" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="562.0" AnchorPane.rightAnchor="557.0" AnchorPane.topAnchor="646.0">
          <font>
             <Font name="MS Reference Sans Serif" size="17.0" />
          </font>

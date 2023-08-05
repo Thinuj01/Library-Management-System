@@ -2,6 +2,7 @@ package com.example.librarymanagementsystem;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,16 +11,22 @@ import javafx.scene.control.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static com.example.librarymanagementsystem.LoginController.Password;
 import static com.example.librarymanagementsystem.LoginController.UserName;
 
+//Hi Iam test 4
 
 public class AdminInterfaceController implements Initializable {
     @FXML
@@ -27,6 +34,21 @@ public class AdminInterfaceController implements Initializable {
 
     @FXML
     private TableView<Book> BookTable;
+
+    @FXML
+    private Button logOutBtn;
+
+    @FXML
+    private Button deliveryBtn;
+
+    @FXML
+    private Button acceptanceBtn;
+
+    @FXML
+    private Button exitBtn;
+
+    @FXML
+    private Button BorrowBtn;
 
     @FXML
     public TableColumn<Book,String> colBookID;
@@ -54,9 +76,14 @@ public class AdminInterfaceController implements Initializable {
     @FXML
     private AnchorPane AdminPane;
 
+    @FXML
+    private Text userIDDisplay;
+
 
     @FXML
     private TextField lblSearch;
+
+
 
 
     @FXML
@@ -65,17 +92,74 @@ public class AdminInterfaceController implements Initializable {
             Stage stage;
             stage =(Stage) AdminPane.getScene().getWindow();
             stage.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddBook.fxml"));
-            Scene scene3 = new Scene(fxmlLoader.load(), 650, 800);
-            Stage stage3 = new Stage();
-            stage3.setTitle("Add Book");
-            stage3.setScene(scene3);
-            stage3.show();
+            LoadWindow.loadInterFace("AddBook.fxml","Add Book",650, 800);
         }
         catch(Exception e){
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void onClickAcceptanceBook(ActionEvent event) {
+        Stage stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        try{
+            LoadWindow.loadInterFace("ReturnBook.fxml","Returning Book",650, 800);
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+
+
+    }
+
+    @FXML
+    void onClickDeliveryBook(ActionEvent event) {
+        Stage stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+
+        try{
+            LoadWindow.loadInterFace("issueBooks.fxml","Issuing Book",900, 650);
+
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    void OnClickExit(ActionEvent event) {
+        try{
+            Stage stage;
+            stage = (Stage)AdminPane.getScene().getWindow();
+            stage.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
+    void OnClickLogOut(ActionEvent event) {
+        Stage stage;
+        stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        try{
+            LoadWindow.loadInterFace("Login.fxml","Hello!",1280, 800);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+
+    }
+
+    @FXML
+    void onClickMyBorrowBooks(ActionEvent event) {
+        String query= "select * from book_details where Book_ID in (select BookID from user_books where userID = ?)";
+
+    }
+
 
     public static Integer index;
 
@@ -96,12 +180,7 @@ public class AdminInterfaceController implements Initializable {
         Stage stage;
         stage =(Stage) AdminPane.getScene().getWindow();
         stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ModifyBook.fxml"));
-        Scene scene4 = new Scene(fxmlLoader.load(), 650, 800);
-        Stage stage4 = new Stage();
-        stage4.setTitle("Modify Book");
-        stage4.setScene(scene4);
-        stage4.show();
+        LoadWindow.loadInterFace("ModifyBook.fxml","Modify Book",650, 800);
     }
 
     private Connection con = null;
@@ -109,12 +188,54 @@ public class AdminInterfaceController implements Initializable {
     private ResultSet rs=null;
     public ObservableList<Book> data;
 
+    @FXML
+    void onClickDelete(ActionEvent event) throws IOException {
+        index = BookTable.getSelectionModel().getSelectedIndex();
+        String BookID = (colBookID.getCellData(AdminInterfaceController.index).toString());
+        if(index<=-1){
+            return;
+        }
+        else{
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Please Confirm");
+            alert.setHeaderText("Are You Want Delete");
+            alert.setContentText("If you delete we cant recover that row if you agree PRESS 'OK' else PRESS 'Cancel'");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                String url = "jdbc:mysql://localhost:3306/lms";
+                String query = "delete from book_details where Book_ID=?";
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection(url,HelloApplication.DB_USERNAME,HelloApplication.DB_PASSWORD);
+                    PreparedStatement pst = conn.prepareStatement(query);
+                    pst.setString(1,BookID);
+                    pst.executeUpdate();
+                    pst.close();
+                    conn.close();
+                    Stage stage;
+                    stage = (Stage)AdminPane.getScene().getWindow();
+                    stage.close();
+                    LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+                    }catch(Exception e){
+                        System.out.println(e);
+                    }
+
+            }
+        }
+
+
+
+        }
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
+            System.out.println("Kasun");
             lblProUser.setText(UserName);
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
             data = FXCollections.observableArrayList();
             colBookID.setCellValueFactory(new PropertyValueFactory<Book,String>("BookID"));
             colBookName.setCellValueFactory(new PropertyValueFactory<Book,String>("BookName"));
@@ -127,6 +248,19 @@ public class AdminInterfaceController implements Initializable {
             loadDataFromDatabase("Select  * from book_details");
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        try{
+            Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms",HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
+            String query = "select user_ID from login where UserName=? and Password=?";
+            PreparedStatement pst = con1.prepareStatement(query);
+            pst.setString(1,UserName);
+            pst.setString(2,Password);
+            ResultSet result = pst.executeQuery();
+            result.next();
+            userIDDisplay.setText(String.valueOf(result.getInt(1)));
+            con1.close();
+        }catch(Exception e){
+            System.out.println(e);
         }
 
 

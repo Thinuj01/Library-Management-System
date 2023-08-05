@@ -41,6 +41,9 @@ public class ModifyBookController implements Initializable {
     @FXML
     private TextField txtMLocation;
 
+    @FXML
+    public void onClickBack(){}
+
 
 
     @FXML
@@ -52,7 +55,7 @@ public class ModifyBookController implements Initializable {
         String MPrice = txtMPrice.getText();
         String MNoPages = txtMNoPages.getText();
         String MLocation = txtMLocation.getText();
-        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "Thinuja21033");
+        Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
         Statement statement2 = connection2.createStatement();
         String Sql = "UPDATE book_details SET Book_ID=\""+MBookId+"\",Book_Name=\""+MBookName+"\",Author=\""+MAuthor+"\",Category=\""+
                 MCategory+"\",Price=\""+MPrice+"\",NoOfPages=\""+MNoPages+"\",Location=\""+MLocation+"\" WHERE Book_ID=\""+MBookId+"\"";
@@ -63,12 +66,7 @@ public class ModifyBookController implements Initializable {
         Stage stage;
         stage =(Stage) ModifyBookPane.getScene().getWindow();
         stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Admin_Interface.fxml"));
-        Scene scene3 = new Scene(fxmlLoader.load(), 1280, 800);
-        Stage stage3 = new Stage();
-        stage3.setTitle("Admin_Interface");
-        stage3.setScene(scene3);
-        stage3.show();
+        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
 
 
 
