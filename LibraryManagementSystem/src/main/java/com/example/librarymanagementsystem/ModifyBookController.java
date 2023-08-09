@@ -3,10 +3,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
@@ -30,7 +27,9 @@ public class ModifyBookController implements Initializable {
     private TextField txtMAuthor;
 
     @FXML
-    private TextField txtMCategory;
+    private ChoiceBox<String> txtMCategory;
+
+    private String[] categoryitems ={"Fantacy","Adventure","Romance","Conteporary","Children","Memoir","Cookbook","Art","Self-help","History","Other"};
 
     @FXML
     private TextField txtMPrice;
@@ -51,7 +50,7 @@ public class ModifyBookController implements Initializable {
         String MBookId = txtMBookID.getText();
         String MBookName = txtMBookName.getText();
         String MAuthor = txtMAuthor.getText();
-        String MCategory = txtMCategory.getText();
+        String MCategory = txtMCategory.getValue();
         String MPrice = txtMPrice.getText();
         String MNoPages = txtMNoPages.getText();
         String MLocation = txtMLocation.getText();
@@ -77,10 +76,12 @@ public class ModifyBookController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+            txtMCategory.getItems().addAll(categoryitems);
+
             txtMBookID.setText(AdminInterfaceController.RBookID);
             txtMBookName.setText(AdminInterfaceController.RBookName);
             txtMAuthor.setText(AdminInterfaceController.RAuthor);
-            txtMCategory.setText(AdminInterfaceController.RCategory);
+            txtMCategory.setValue(AdminInterfaceController.RCategory);
             txtMPrice.setText(AdminInterfaceController.RPrice);
             txtMNoPages.setText(AdminInterfaceController.RNoPages);
             txtMLocation.setText(AdminInterfaceController.RLocation);
