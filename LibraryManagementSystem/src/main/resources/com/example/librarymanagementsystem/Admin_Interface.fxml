@@ -53,12 +53,12 @@
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Text fill="#ff00dd" layoutX="188.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User_ID:- ">
+      <Text fill="#3b8481" layoutX="188.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User_ID:- ">
          <font>
             <Font name="MS Reference Sans Serif" size="20.0" />
          </font>
       </Text>
-      <Text fx:id="userIDDisplay" fill="#e7f224" layoutX="304.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+      <Text fx:id="userIDDisplay" fill="WHITE" layoutX="304.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
          <font>
             <Font size="20.0" />
          </font>
