@@ -70,7 +70,7 @@
          <graphic>
             <ImageView fx:id="picLogOut" fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="D:\OneDrive - std.uwu.ac.lk\myPracticals\Java\Library-Management-System\LibraryManagementSystem\src\main\resources\Img\logout.png" />
+
                </image>
             </ImageView>
          </graphic>
@@ -82,7 +82,7 @@
          <graphic>
             <ImageView fx:id="picExit" fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="D:\OneDrive - std.uwu.ac.lk\myPracticals\Java\Library-Management-System\LibraryManagementSystem\src\main\resources\Img\shutdown.png" />
+
                </image>
             </ImageView>
          </graphic>
