@@ -2,12 +2,10 @@ package com.example.librarymanagementsystem;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -15,6 +13,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import java.util.Date;
 
@@ -47,6 +48,9 @@ public class IssueBooksController implements Initializable {
     @FXML
     private Label lblIssueDate;
 
+    @FXML
+    private Button backBtn;
+
 
 
     private Connection con = null;
@@ -76,7 +80,13 @@ public class IssueBooksController implements Initializable {
             String id = txtUserID.getText().toString();
             System.out.println(id);
             int userID = Integer.parseInt(id);
-            String sql = "Insert into user_books (UserId,BookID,date_of_issued,amount_of_fine) values(" + userID + ",\"" + lblBookID.getText() + "\",\"" + lblIssueDate.getText() + "\",0.0)";
+
+            /*DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.DATE,7);*/
+            String sDate = "2023-08-20";//dateFormat.format(cal.getTime());
+
+            String sql = "Insert into user_books (UserId,BookID,date_of_issued,date_of_resubmition,amount_of_fine) values(" + userID + ",\"" + lblBookID.getText() + "\",\"" + lblIssueDate.getText() + "\",\""+sDate+"\",0.0)";
             System.out.println(sql);
             Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
             Statement statement2 = connection2.createStatement();
@@ -93,6 +103,14 @@ public class IssueBooksController implements Initializable {
             e.printStackTrace();
         }
         }
+
+    @FXML
+    void onClickBack(ActionEvent event) {
+        Stage stage;
+        stage = (Stage) IssuePane.getScene().getWindow();
+        stage.close();
+        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

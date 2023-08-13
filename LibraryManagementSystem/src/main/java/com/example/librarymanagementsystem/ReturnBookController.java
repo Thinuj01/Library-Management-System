@@ -7,7 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -19,6 +21,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 
 public class ReturnBookController implements Initializable {
+
+    @FXML
+    private AnchorPane returnPane;
 
     @FXML
     private TextField userID;
@@ -40,6 +45,9 @@ public class ReturnBookController implements Initializable {
 
     @FXML
     private Text msgTxt;
+
+    @FXML
+    private Button backBtn;
 
     @FXML
     void onClickReceivedDate(MouseEvent event) {
@@ -111,6 +119,13 @@ public class ReturnBookController implements Initializable {
     @FXML
     void onClickReturnBook(ActionEvent event) {
 
+    }
+    @FXML
+    void onClickBack(ActionEvent event) {
+        Stage stage;
+        stage = (Stage) returnPane.getScene().getWindow();
+        stage.close();
+        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
     }
 
     @Override

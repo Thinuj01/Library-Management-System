@@ -152,10 +152,21 @@ public class AdminInterfaceController implements Initializable {
         }
 
     }
+    public String getUid(){
+        return userIDDisplay.getText();
+    }
 
     @FXML
     void onClickMyBorrowBooks(ActionEvent event) {
-        String query= "select * from book_details where Book_ID in (select BookID from user_books where userID = ?)";
+        Stage stage;
+        stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        try{
+            LoadWindow.loadInterFace("My_books.fxml","My Books",1280, 800);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
 
     }
 
@@ -261,6 +272,7 @@ public class AdminInterfaceController implements Initializable {
         }catch(Exception e){
             System.out.println(e);
         }
+         String uid = userIDDisplay.getText();
 
 
     }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="607.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.My_booksController">
+   <children>
+      <TableView fx:id="myBookTable" layoutX="187.0" layoutY="132.0" prefHeight="343.0" prefWidth="504.0">
+        <columns>
+          <TableColumn fx:id="colBookId" prefWidth="152.0" text="BookID" />
+            <TableColumn fx:id="colIssuDate" prefWidth="153.0" text="Date_of_issued" />
+            <TableColumn fx:id="colResubmission" prefWidth="196.0" text="Date_of_resubmission." />
+        </columns>
+      </TableView>
+      <Button layoutX="42.0" layoutY="56.0" mnemonicParsing="false" text="Button" />
+   </children>
+</AnchorPane>
