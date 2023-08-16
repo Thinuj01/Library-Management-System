@@ -87,7 +87,6 @@ public class ReturnBookController implements Initializable {
 
 
                     System.out.println(pst2.executeUpdate());
-
                     int fine = fineCalculator(rdate,idate);
                     String fined = String.valueOf(fine);
                     fineDisplay.setText(("Rs."+fined+".00"));
@@ -119,30 +118,7 @@ public class ReturnBookController implements Initializable {
 
     @FXML
     void onClickReturnBook(ActionEvent event) {
-        String userid = userID.getText();
-        String bookid = BookID.getText();
-        //LocalDate rdate = receivedDate.getValue();
-        try{
-            //String query="update user_books set date_of_recived = CASE when userid=? and bookid=? then ? else date_of_recived end,amount_of_fine= CASE when userid=? and bookid=? then ? else amount_of_fine end,status = CASE when userid=? and bookid=? then \"ok\" else status end";
-            String query = "update user_books set status=\"ok\" where userid=? and bookid=?";
-            Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
-            PreparedStatement pst2 = con2.prepareStatement(query);
-            /*pst2.setString(1,userid);
-            pst2.setString(2,bookid);
-            pst2.setDate(3,rdate);*/
-            pst2.setString(1,userid);
-            pst2.setString(2,bookid);
 
-            System.out.println(pst2.executeUpdate());
-
-            Stage stage;
-            stage = (Stage) returnPane.getScene().getWindow();
-            stage.close();
-            LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
-
-            }catch(Exception e){
-            System.out.println(e);
-        }
     }
     @FXML
     void onClickBack(ActionEvent event) {

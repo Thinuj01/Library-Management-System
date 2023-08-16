@@ -17,8 +17,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class LoginController {
-    public static String UserName = null;
-    public static String Password = null;
+    public static String UserName;
+    public static String Password;
     @FXML
     private TextField txtUserName;
     @FXML
@@ -91,7 +91,7 @@ public class LoginController {
             LoadWindow.loadInterFace("Visitor_Interface.fxml","Visitor",1280,800);
 
         }catch(Exception e){
-            System.out.println("kasun"+e);
+            System.out.println(e);
         }
     }
 
