@@ -85,6 +85,7 @@ public class LoginController {
     @FXML
     void onClickVisitor(ActionEvent event) {
         try{
+            new HelloApplication().getUserID = false;
             UserName="Visitor Account";
             Stage stage = (Stage)AdminPane.getScene().getWindow();
             stage.close();

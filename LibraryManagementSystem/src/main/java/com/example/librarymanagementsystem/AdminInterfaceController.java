@@ -259,22 +259,23 @@ public class AdminInterfaceController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        try{
-            Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms",HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
-            String query = "select user_ID from login where UserName=? and Password=?";
-            PreparedStatement pst = con1.prepareStatement(query);
-            pst.setString(1,UserName);
-            pst.setString(2,Password);
-            ResultSet result = pst.executeQuery();
-            result.next();
-            userIDDisplay.setText(String.valueOf(result.getInt(1)));
-            con1.close();
-        }catch(Exception e){
-            System.out.println(e);
+        if(new HelloApplication().getUserID){
+            try {
+                Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
+                String query = "select user_ID from login where UserName=? and Password=?";
+                PreparedStatement pst = con1.prepareStatement(query);
+                pst.setString(1, UserName);
+                pst.setString(2, Password);
+                ResultSet result = pst.executeQuery();
+                result.next();
+                userIDDisplay.setText(String.valueOf(result.getInt(1)));
+                con1.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
-         String uid = userIDDisplay.getText();
 
-
+        new HelloApplication().getUserID=false;
     }
 
     public void loadDataFromDatabase(String Sql) throws SQLException {
