@@ -8,10 +8,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.swing.*;
+import java.sql.*;
 
 public class RegisterController {
     @FXML
@@ -49,14 +47,9 @@ public class RegisterController {
             String Password = txtPassword.getText();
             String RePassword = txtRePassword.getText();
             String Role="";
-        if (rdbAdmin.isSelected()) {
-            Role = "Admin";
-        } else {
-            Role = "User";
-        }
-            /*if (tgRole.getSelectedToggle().equals(rdbAdmin)) {
+            if (tgRole.getSelectedToggle().equals(rdbAdmin)) {
                 String SYSTEM_PASSWORD="MiniProject1234";
-                String userInput = JOptionPane.showInputDialog("Enter Password:");
+                String userInput = JOptionPane.showInputDialog("Enter System Control Password:");
                 if (SYSTEM_PASSWORD.equals(userInput)) {
                     Role = "Admin";
                 } else {
@@ -72,7 +65,8 @@ public class RegisterController {
             } else if(tgRole.getSelectedToggle().equals(rdbUser)){
                 Role = "User";
 
-            }*/
+            }
+        try{
             if (Password.equals(RePassword)) {
 
                 String sql = "INSERT INTO login" + "(FName,LName,BOD,UserName,Password,Role)" +
@@ -83,15 +77,17 @@ public class RegisterController {
                 Statement statement2 = connection2.createStatement();
                 statement2.execute(sql);
                 Stage stage;
-                stage =(Stage) RegisterPane.getScene().getWindow();
+                stage = (Stage) RegisterPane.getScene().getWindow();
                 stage.close();
 
                 statement2.close();
                 connection2.close();
-            }
-
-            else{
+                LoadWindow.loadInterFace("Login.fxml","Login",1280,800);
+            } else {
                 lblWarning.setText("Passwords dosen't match");
+            }
+        }catch(Exception e){
+            System.out.println("kasun"+e);
         }
 
 

@@ -97,6 +97,9 @@ public class LoginController {
 
     @FXML
     protected void onClickRegister() throws IOException {
+        Stage stage;
+        stage =(Stage) AdminPane.getScene().getWindow();
+        stage.close();
         LoadWindow.loadInterFace("Register.fxml","Register",650, 800);
     }
 
