@@ -1,13 +1,17 @@
 package com.example.librarymanagementsystem;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
-import java.sql.*;
-import java.util.Optional;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class RegisterController {
     @FXML
@@ -44,7 +48,7 @@ public class RegisterController {
             String UserName = txtUserName.getText();
             String Password = txtPassword.getText();
             String RePassword = txtRePassword.getText();
-            String Role;
+            String Role="";
         if (rdbAdmin.isSelected()) {
             Role = "Admin";
         } else {
@@ -78,12 +82,12 @@ public class RegisterController {
                 Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
                 Statement statement2 = connection2.createStatement();
                 statement2.execute(sql);
-
-                statement2.close();
-                connection2.close();
                 Stage stage;
                 stage =(Stage) RegisterPane.getScene().getWindow();
                 stage.close();
+
+                statement2.close();
+                connection2.close();
             }
 
             else{
