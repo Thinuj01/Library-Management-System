@@ -162,7 +162,7 @@ public class AdminInterfaceController implements Initializable {
         stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         try{
-            LoadWindow.loadInterFace("My_books.fxml","My Books",1280, 800);
+            LoadWindow.loadInterFace("My_books.fxml","My Books",900, 800);
         }
         catch(Exception e){
             System.out.println(e);
