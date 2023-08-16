@@ -11,27 +11,22 @@
 
 <AnchorPane fx:id="AddBookPane" prefHeight="800.0" prefWidth="650.0" styleClass="root" stylesheets="@../../../cssStyle/AddBook.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.AddBookController">
    <children>
-      <TextField fx:id="txtBookID" layoutX="187.0" layoutY="223.0" prefHeight="33.0" prefWidth="276.0" promptText="Book ID" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
+      <TextField fx:id="txtBookName" layoutX="187.0" layoutY="236.0" prefHeight="33.0" prefWidth="276.0" promptText="Book Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtBookName" layoutX="187.0" layoutY="276.0" prefHeight="33.0" prefWidth="276.0" promptText="Book Name" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
+      <TextField fx:id="txtAuthor" layoutX="189.0" layoutY="302.0" prefHeight="33.0" prefWidth="276.0" promptText="Author" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAuthor" layoutX="187.0" layoutY="326.0" prefHeight="33.0" prefWidth="276.0" promptText="Author" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
+      <TextField fx:id="txtPrice" layoutX="189.0" layoutY="414.0" prefHeight="33.0" prefWidth="276.0" promptText="Price" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtPrice" layoutX="187.0" layoutY="426.0" prefHeight="33.0" prefWidth="276.0" promptText="Price" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtNoPages" layoutX="187.0" layoutY="475.0" prefHeight="33.0" prefWidth="276.0" promptText="No of pages" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
+      <TextField fx:id="txtNoPages" layoutX="187.0" layoutY="464.0" prefHeight="33.0" prefWidth="276.0" promptText="No of pages" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-alignment: center; -fx-text-fill: #ffffff;">
          <font>
             <Font size="15.0" />
          </font>
@@ -60,6 +55,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <ChoiceBox fx:id="txtCategory" layoutX="185.0" layoutY="374.0" prefHeight="33.0" prefWidth="276.0" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-text-fill: #ffffff; -fx-alignment: center;" stylesheets="@../../../cssStyle/addbookChoice.css" />
+      <ChoiceBox fx:id="txtCategory" layoutX="187.0" layoutY="355.0" prefHeight="33.0" prefWidth="276.0" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-text-fill: #ffffff; -fx-alignment: center;" stylesheets="@../../../cssStyle/addbookChoice.css" />
    </children>
 </AnchorPane>

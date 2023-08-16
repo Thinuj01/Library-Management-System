@@ -1,16 +1,13 @@
 package com.example.librarymanagementsystem;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
+import javax.swing.JOptionPane;
 
-import java.io.IOException;
-import java.net.URL;
 import java.sql.*;
-import java.util.ResourceBundle;
+import java.util.Optional;
 
 public class RegisterController {
     @FXML
@@ -47,12 +44,31 @@ public class RegisterController {
             String UserName = txtUserName.getText();
             String Password = txtPassword.getText();
             String RePassword = txtRePassword.getText();
-            String Role = "";
-            if (rdbAdmin.isSelected()) {
+            String Role;
+        if (rdbAdmin.isSelected()) {
+            Role = "Admin";
+        } else {
+            Role = "User";
+        }
+            /*if (tgRole.getSelectedToggle().equals(rdbAdmin)) {
+                String SYSTEM_PASSWORD="MiniProject1234";
+                String userInput = JOptionPane.showInputDialog("Enter Password:");
+                if (SYSTEM_PASSWORD.equals(userInput)) {
+                    Role = "Admin";
+                } else {
+                    JOptionPane.showMessageDialog(null, "Password is Incorrect!!!", "Error", JOptionPane.ERROR_MESSAGE);
+                    Stage stage;
+                    stage =(Stage) RegisterPane.getScene().getWindow();
+                    stage.close();
+                    LoadWindow.loadInterFace("Login.fxml","Login",1280,800);
+                }
                 Role = "Admin";
-            } else {
+
+
+            } else if(tgRole.getSelectedToggle().equals(rdbUser)){
                 Role = "User";
-            }
+
+            }*/
             if (Password.equals(RePassword)) {
 
                 String sql = "INSERT INTO login" + "(FName,LName,BOD,UserName,Password,Role)" +
