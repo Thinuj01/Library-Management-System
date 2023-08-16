@@ -36,7 +36,7 @@
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/logout.png" />
+                  <Image url="E:\git\Library-Management-System\LibraryManagementSystem\target\classes\Img\logout.png" />
                </image>
             </ImageView>
          </graphic>
@@ -62,7 +62,7 @@
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/shutdowm.png" />
+                  <Image url="E:\git\Library-Management-System\LibraryManagementSystem\target\classes\Img\shutdown.png" />
                </image>
             </ImageView>
          </graphic>
