@@ -102,6 +102,7 @@ public class AdminInterfaceController implements Initializable {
     void onclickMember(ActionEvent event) {
         Stage stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
+        HelloApplication.openDelete=false;
         LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Members List",1280,800);
     }
 
@@ -109,7 +110,7 @@ public class AdminInterfaceController implements Initializable {
     void onClickDelMember(ActionEvent event) {
         Stage stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
-        new HelloApplication().openDelete=true;
+        HelloApplication.openDelete=true;
         LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Delete Member",1280,800);
     }
 

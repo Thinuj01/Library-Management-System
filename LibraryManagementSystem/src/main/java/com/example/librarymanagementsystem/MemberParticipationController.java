@@ -302,9 +302,10 @@ public class MemberParticipationController implements Initializable {
         searchText2.setVisible(false);
         bookTable.setVisible(false);
         backBtn2.setVisible(false);
-        delMemberBtn.setVisible(!new HelloApplication().openDelete);
-        submitBtn.setVisible(new HelloApplication().openDelete);
-        selectBtn.setVisible(!new HelloApplication().openDelete);
+        System.out.println(HelloApplication.openDelete);
+        delMemberBtn.setVisible(HelloApplication.openDelete);
+        submitBtn.setVisible(!HelloApplication.openDelete);
+        selectBtn.setVisible(HelloApplication.openDelete);
 
         try{
             ObservableList<login> data = FXCollections.observableArrayList();
