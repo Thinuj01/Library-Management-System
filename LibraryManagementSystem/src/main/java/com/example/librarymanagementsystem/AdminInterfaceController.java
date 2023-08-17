@@ -99,6 +99,18 @@ public class AdminInterfaceController implements Initializable {
     }
 
     @FXML
+    void onclickMember(ActionEvent event) {
+        Stage stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Members List",1280,800);
+    }
+
+    @FXML
+    void onClickDelMember(ActionEvent event) {
+
+    }
+
+    @FXML
     void onClickAcceptanceBook(ActionEvent event) {
         Stage stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
