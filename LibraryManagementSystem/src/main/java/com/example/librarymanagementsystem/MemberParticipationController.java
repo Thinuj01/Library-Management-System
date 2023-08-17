@@ -6,16 +6,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.*;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MemberParticipationController implements Initializable {
@@ -80,20 +78,30 @@ public class MemberParticipationController implements Initializable {
     @FXML
     private TextField searchText2;
 
+    @FXML
+    private Button selectBtn;
+
 
     @FXML
     private Button backBtn1;
 
     @FXML
+    private Button delMemberBtn;
+
+    @FXML
     private Button backBtn2;
     public ObservableList<login> data1;
     public ObservableList<User_books> data2;
-    int userID;
+    int userID,userID1;
+    static int index;
+
+
 
     @FXML
     void onClickBack(ActionEvent event) {
         Stage stage1 = (Stage) memberPane1.getScene().getWindow();
         stage1.close();
+        new HelloApplication().openDelete = false;
         LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
 
     }
@@ -103,6 +111,52 @@ public class MemberParticipationController implements Initializable {
         Stage stage2 = (Stage) memberPane2.getScene().getWindow();
         stage2.close();
         LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Member Participation",1280,800);
+    }
+
+    @FXML
+    void onClickSelect(ActionEvent event) {
+        index = usersTable.getSelectionModel().getSelectedIndex();
+        userID1 = (Integer.parseInt(colUserID.getCellData(MemberParticipationController.index)));
+        userIDTextBox.setText(String.valueOf(userID1));
+        if(index<=-1){
+            return;
+        }
+
+    }
+
+    @FXML
+    void onClickDelMember(ActionEvent event) {
+        try{
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Please Confirm");
+            alert.setHeaderText("Are You Want Delete this Member");
+            alert.setContentText("If you delete we cant recover that Member Account if you agree PRESS 'OK' else PRESS 'Cancel'");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                String url = "jdbc:mysql://localhost:3306/lms";
+                String query = "delete from login where user_ID=?";
+                try{
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection(url,HelloApplication.DB_USERNAME,HelloApplication.DB_PASSWORD);
+                    PreparedStatement pst = conn.prepareStatement(query);
+                    pst.setInt(1,userID1);
+                    pst.executeUpdate();
+                    pst.close();
+                    conn.close();
+                    Stage stage;
+                    stage = (Stage)memberPane1.getScene().getWindow();
+                    stage.close();
+                    LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Delete Member", 1280, 800);
+                }catch(Exception e){
+                    System.out.println(e);
+                }
+
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     @FXML
@@ -248,6 +302,9 @@ public class MemberParticipationController implements Initializable {
         searchText2.setVisible(false);
         bookTable.setVisible(false);
         backBtn2.setVisible(false);
+        delMemberBtn.setVisible(!new HelloApplication().openDelete);
+        submitBtn.setVisible(new HelloApplication().openDelete);
+        selectBtn.setVisible(!new HelloApplication().openDelete);
 
         try{
             ObservableList<login> data = FXCollections.observableArrayList();

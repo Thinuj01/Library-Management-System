@@ -34,8 +34,17 @@ public class RegisterController {
     private Label lblWarning;
     @FXML
     private AnchorPane RegisterPane;
+
+    private String SYSTEM_PASSWORD=findPassword();
     @FXML
     public void onClickBack(){}
+
+    protected String getSYSTEM_PASSWORD(){
+        return findPassword();
+    }
+    protected void setSYSTEM_PASSWORD(String ps){
+        SYSTEM_PASSWORD=ps;
+    }
 
     @FXML
     protected void onClickRegistered() throws SQLException {
@@ -48,7 +57,7 @@ public class RegisterController {
             String RePassword = txtRePassword.getText();
             String Role="";
             if (tgRole.getSelectedToggle().equals(rdbAdmin)) {
-                String SYSTEM_PASSWORD="MiniProject1234";
+                 SYSTEM_PASSWORD="MiniProject1234";//findPassword();
                 String userInput = JOptionPane.showInputDialog("Enter System Control Password:");
                 if (SYSTEM_PASSWORD.equals(userInput)) {
                     Role = "Admin";
@@ -91,6 +100,22 @@ public class RegisterController {
         }
 
 
+    }
+
+    private String findPassword(){
+        String query = "select * from syPassword";
+        String ps="";
+        try{
+            Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
+            Statement stm = con1.createStatement();
+            ResultSet rst = stm.executeQuery(query);
+            rst.next();
+            ps = rst.getString(1);
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return ps;
     }
 
 

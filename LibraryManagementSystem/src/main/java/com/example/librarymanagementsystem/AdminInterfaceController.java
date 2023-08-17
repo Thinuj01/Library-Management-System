@@ -107,8 +107,12 @@ public class AdminInterfaceController implements Initializable {
 
     @FXML
     void onClickDelMember(ActionEvent event) {
-
+        Stage stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        new HelloApplication().openDelete=true;
+        LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Delete Member",1280,800);
     }
+
 
     @FXML
     void onClickAcceptanceBook(ActionEvent event) {
