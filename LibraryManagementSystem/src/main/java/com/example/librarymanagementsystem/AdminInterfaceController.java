@@ -162,6 +162,7 @@ public class AdminInterfaceController implements Initializable {
             Stage stage;
             stage = (Stage)AdminPane.getScene().getWindow();
             stage.close();
+            System.exit(0);
         }
         catch(Exception e){
             System.out.println(e);

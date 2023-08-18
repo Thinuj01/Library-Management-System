@@ -127,6 +127,7 @@ public class MemberParticipationController implements Initializable {
     @FXML
     void onClickDelMember(ActionEvent event) {
         try{
+            userID1 = Integer.parseInt(userIDTextBox.getText());
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Please Confirm");

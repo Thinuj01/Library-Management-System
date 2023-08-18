@@ -62,7 +62,7 @@ public class RegisterController {
             String RePassword = txtRePassword.getText();
             String Role="";
             if (tgRole.getSelectedToggle().equals(rdbAdmin)) {
-                 SYSTEM_PASSWORD=findPassword();//findPassword();
+                 SYSTEM_PASSWORD=findPassword();
                 String userInput = JOptionPane.showInputDialog("Enter System Control Password:");
                 if (SYSTEM_PASSWORD.equals(userInput)) {
                     Role = "Admin";
