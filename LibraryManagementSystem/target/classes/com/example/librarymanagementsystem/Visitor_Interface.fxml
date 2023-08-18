@@ -26,6 +26,11 @@
             <TableColumn fx:id="colLocation" prefWidth="125.0" text="Location" />
         </columns>
       </TableView>
+      <Button fx:id="logOutBtn" layoutX="271.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" text="Logout" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
       <Label alignment="CENTER" layoutX="725.0" layoutY="179.0" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: #3B8481; -fx-background-radius: 25;" text="    Search" textFill="WHITE">
          <font>
             <Font size="18.0" />
@@ -35,22 +40,17 @@
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font></TextField>
-      <Button fx:id="logOutBtn" layoutX="308.0" layoutY="121.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" text="Logout" textFill="WHITE">
+      <Button fx:id="exitBtn1" layoutX="1122.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: #f34235; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
          <font>
-            <Font name="MS Reference Sans Serif" size="15.0" />
+            <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="exitBtn1" layoutX="1112.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: #f34235; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
-         <font>
-            <Font name="MS Reference Sans Serif" size="15.0" />
-         </font>
-      </Button>
-      <Label fx:id="l_date" layoutX="475.0" layoutY="122.0" prefHeight="35.0" prefWidth="172.0" textFill="WHITE">
+      <Label fx:id="l_date" layoutX="462.0" layoutY="122.0" prefHeight="35.0" prefWidth="163.0" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="l_time" layoutX="658.0" layoutY="122.0" prefHeight="35.0" prefWidth="201.0" textFill="WHITE">
+      <Label fx:id="l_time" layoutX="625.0" layoutY="122.0" prefHeight="35.0" prefWidth="216.0" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="20.0" />
          </font>

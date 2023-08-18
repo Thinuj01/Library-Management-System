@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="IssuePane" prefHeight="650.0" prefWidth="900.0" stylesheets="@../../../cssStyle/IssueBooks.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.IssueBooksController">
+<AnchorPane fx:id="IssuePane" prefHeight="650.0" prefWidth="900.0" stylesheets="@../../../cssStyle/IssueBooks.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.IssueBooksController">
    <children>
-      <TableView fx:id="issueBookTable" layoutX="376.0" layoutY="128.0" prefHeight="397.0" prefWidth="516.0">
+      <TableView fx:id="issueBookTable" layoutX="376.0" layoutY="128.0" prefHeight="397.0" prefWidth="516.0" stylesheets="@../../../cssStyle/column.css">
         <columns>
           <TableColumn fx:id="colIbookID" prefWidth="124.0" text="Book ID" />
           <TableColumn fx:id="colIbookName" prefWidth="246.0" text="Book Name" />
@@ -39,9 +39,9 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="backBtn" layoutX="781.0" layoutY="31.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="37.0" prefWidth="95.0" style="-fx-background-color: #3b8481; -fx-background-radius: 20;" text="Back" textFill="#fcfafa">
+      <Button fx:id="backBtn" layoutX="-8.0" layoutY="-10.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="37.0" prefWidth="95.0" style="-fx-background-color: transparent; -fx-background-radius: 20;" text="&lt;" textFill="WHITE">
          <font>
-            <Font name="MS Reference Sans Serif" size="16.0" />
+            <Font name="MS Reference Sans Serif" size="49.0" />
          </font>
       </Button>
    </children>

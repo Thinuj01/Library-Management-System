@@ -9,8 +9,8 @@
 
 <AnchorPane fx:id="returnPane" prefHeight="800.0" prefWidth="650.0" stylesheets="@../../../cssStyle/returnAbook.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.ReturnBookController">
     <children>
-        <TextField fx:id="userID" layoutX="245.0" layoutY="232.0" promptText="Enter userID" />
-        <TextField fx:id="BookID" layoutX="245.0" layoutY="313.0" promptText="Enter BookID" />
+        <TextField fx:id="userID" layoutX="266.0" layoutY="230.0" promptText="Enter userID" />
+        <TextField fx:id="BookID" layoutX="266.0" layoutY="310.0" promptText="Enter BookID" />
         <Text fill="#f5f3f3" layoutX="146.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID">
             <font>
                 <Font size="20.0" />
@@ -36,9 +36,9 @@
                 <Font size="25.0" />
             </font>
         </Text>
-        <Button fx:id="returnBookBtn" layoutX="268.0" layoutY="648.0" mnemonicParsing="false" onAction="#onClickReturnBook" prefHeight="33.0" prefWidth="115.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" text="Submit" textFill="WHITE">
+        <Button fx:id="returnBookBtn" layoutX="266.0" layoutY="647.0" mnemonicParsing="false" onAction="#onClickReturnBook" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" text="Submit" textFill="WHITE">
          <font>
-            <Font name="MS Reference Sans Serif" size="16.0" />
+            <Font size="18.0" />
          </font></Button>
         <Text fill="#f5f3f3" layoutX="152.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Issued Date:">
             <font>
@@ -56,9 +56,9 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="backBtn" layoutX="-32.0" layoutY="-37.0" mnemonicParsing="false" onAction="#onClickBack" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
+      <Button fx:id="backBtn" layoutX="-18.0" layoutY="-16.0" mnemonicParsing="false" onAction="#onClickBack" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
          <font>
-            <Font size="66.0" />
+            <Font size="59.0" />
          </font></Button>
     </children>
 </AnchorPane>

@@ -6,18 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="myBookPane" prefHeight="607.0" prefWidth="736.0" styleClass="root" stylesheets="@../../../cssStyle/Borrow_Books.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.My_booksController">
+<AnchorPane fx:id="myBookPane" prefHeight="607.0" prefWidth="736.0" stylesheets="@../../../cssStyle/Borrow_Books.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.My_booksController">
    <children>
-      <TableView fx:id="myBookTable" layoutX="27.0" layoutY="123.0" prefHeight="455.0" prefWidth="682.0" stylesheets="@../../../cssStyle/column.css">
+      <Button fx:id="backBtn" layoutX="-10.0" layoutY="-18.0" mnemonicParsing="false" onAction="#onclickBack" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
+         <font>
+            <Font size="56.0" />
+         </font></Button>
+      <TableView fx:id="myBookTable" layoutX="21.0" layoutY="138.0" prefHeight="450.0" prefWidth="702.0">
         <columns>
-          <TableColumn fx:id="colBookId" prefWidth="152.0" text="BookID" />
-            <TableColumn fx:id="colIssuDate" prefWidth="224.0" text="Date_of_issued" />
-            <TableColumn fx:id="colResubmission" prefWidth="305.0" text="Date_of_resubmission." />
+          <TableColumn fx:id="colBookId" prefWidth="160.0" text="BookID" />
+            <TableColumn fx:id="colIssuDate" prefWidth="266.0" text="Date_of_issued" />
+            <TableColumn fx:id="colResubmission" prefWidth="275.0" text="Date_of_resubmission." />
         </columns>
       </TableView>
-      <Button fx:id="backBtn" layoutX="-66.0" layoutY="-72.0" mnemonicParsing="false" onAction="#onclickBack" prefHeight="229.0" prefWidth="212.0" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
-         <font>
-            <Font size="88.0" />
-         </font></Button>
    </children>
 </AnchorPane>

@@ -44,9 +44,9 @@
             <Font name="MS Reference Sans Serif" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="-37.0" layoutY="-41.0" mnemonicParsing="false" onAction="#onClickBack" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
+      <Button layoutX="-23.0" layoutY="-26.0" mnemonicParsing="false" onAction="#onClickBack" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
          <font>
-            <Font size="76.0" />
+            <Font size="62.0" />
          </font>
       </Button>
       <ChoiceBox fx:id="txtCategory" layoutX="187.0" layoutY="355.0" prefHeight="33.0" prefWidth="276.0" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30; -fx-text-fill: #ffffff; -fx-alignment: center;" stylesheets="@../../../cssStyle/addbookChoice.css" />
