@@ -41,7 +41,12 @@ public class AddBookController implements Initializable {
     private AnchorPane AddBookPane;
 
     @FXML
-    public void onClickBack(){}
+    public void onClickBack(){
+        Stage stage;
+        stage = (Stage) AddBookPane.getScene().getWindow();
+        stage.close();
+        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+    }
 
     private PreparedStatement pst = null;
     @FXML
