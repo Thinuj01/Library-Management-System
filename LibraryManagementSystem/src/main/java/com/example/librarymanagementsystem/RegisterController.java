@@ -84,7 +84,7 @@ public class RegisterController extends LoadWindow{
 
                 String sql = "INSERT INTO login" + "(FName,LName,BOD,UserName,Password,Role)" +
                         "VALUES(\"" + FirstName + "\",\"" + LastName + "\",\"" + BOD + "\",\"" + UserName + "\",\"" + Password + "\",\"" + Role + "\")";
-                //System.out.println(sql);
+
 
                 Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
                 Statement statement2 = connection2.createStatement();
