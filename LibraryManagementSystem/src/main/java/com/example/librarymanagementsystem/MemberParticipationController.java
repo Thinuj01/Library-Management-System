@@ -49,7 +49,7 @@ public class MemberParticipationController implements Initializable {
     private Button submitBtn;
 
     @FXML
-    private TextField searchText1;
+    public TextField searchText1;
 
     @FXML
     private AnchorPane memberPane2;
@@ -76,7 +76,7 @@ public class MemberParticipationController implements Initializable {
     private TableColumn<User_books,String> colStatus;
 
     @FXML
-    private TextField searchText2;
+    public TextField searchText2;
 
     @FXML
     private Button selectBtn;
@@ -191,6 +191,8 @@ public class MemberParticipationController implements Initializable {
 
             }
             bookTable.setItems(data);
+            data2 = data;
+            Search2();
             rst.close();
             pst1.close();
             con1.close();
@@ -227,8 +229,12 @@ public class MemberParticipationController implements Initializable {
                 }
             }else{
                 data2.clear();
-                String sql = "Select Select BookID,date_of_issued,date_of_resubmition,date_of_recived,amount_of_fine,status from User_books where BookID Like \'%"+searchText2.getText()+"%\' "
-                        +"UNION Select BookID,date_of_issued,date_of_resubmition,date_of_recived,amount_of_fine,status from User_books where status Like \'%"+searchText2.getText()+"%\' ";
+                String sql = "Select BookID,date_of_issued,date_of_resubmition,date_of_recived,amount_of_fine,status from User_books where BookID Like \'%"+searchText2.getText()+"%\' AND UserID="+userID
+                        +" UNION Select BookID,date_of_issued,date_of_resubmition,date_of_recived,amount_of_fine,status from User_books where status Like \'%"+searchText2.getText()+"%\' AND UserID="+userID
+                        +" UNION Select BookID,date_of_issued,date_of_resubmition,date_of_recived,amount_of_fine,status from User_books where date_of_resubmition Like \'%"+searchText2.getText()+"%\' AND UserID="+userID
+                        +" UNION Select BookID,date_of_issued,date_of_resubmition,date_of_recived,amount_of_fine,status from User_books where date_of_recived Like \'%"+searchText2.getText()+"%\' AND UserID="+userID
+                        +" UNION Select BookID,date_of_issued,date_of_resubmition,date_of_recived,amount_of_fine,status from User_books where date_of_issued Like \'%"+searchText2.getText()+"%\' AND UserID="+userID;
+
                 try {
                     Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);;
                     PreparedStatement pst2 = con2.prepareStatement(sql);
@@ -256,7 +262,7 @@ public class MemberParticipationController implements Initializable {
 
 
         while(rs1.next()){
-            data1.add(new login(String.valueOf(rs1.getInt(1)),rs1.getString(2),rs1.getString(3),rs1.getString(4), rs1.getString(5),rs1.getString(7)));
+            data1.add(new login(String.valueOf(rs1.getInt(1)),rs1.getString(2),rs1.getString(3),rs1.getString(4), rs1.getString(5),rs1.getString(6)));
 
         }
         usersTable.setItems(data1);
@@ -277,7 +283,8 @@ public class MemberParticipationController implements Initializable {
                 }
             }else{
                 data1.clear();
-                String sql = "Select user_ID,FName,LName,BOD,UserName,Role from login where user_ID Like \'%"+Integer.parseInt(searchText1.getText())+"%\' "+"UNION Select user_ID,FName,LName,BOD,UserName,Role from login where FName Like \'%"+searchText1.getText()+"%\' "
+                System.out.println(searchText1.getText());
+                String sql = "Select user_ID,FName,LName,BOD,UserName,Role from login where user_ID Like \'%"+searchText1.getText()+"%\' "+"UNION Select user_ID,FName,LName,BOD,UserName,Role from login where FName Like \'%"+searchText1.getText()+"%\' "
                         +"UNION Select user_ID,FName,LName,BOD,UserName,Role from login where LName Like \'%"+searchText1.getText()+"%\' "+"UNION Select user_ID,FName,LName,BOD,UserName,Role from login where Role Like \'%"+searchText1.getText()+"%\' ";
                 try {
                     Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);;
@@ -326,9 +333,13 @@ public class MemberParticipationController implements Initializable {
 
             }
             usersTable.setItems(data);
+            data1 = data;
             rst.close();
             pst1.close();
             con1.close();
+            Search1();
+
+
         }catch(Exception e){
             System.out.println(e);
         }

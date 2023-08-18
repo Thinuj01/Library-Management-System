@@ -4,16 +4,20 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="myBookPane" prefHeight="607.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.My_booksController">
+<AnchorPane fx:id="myBookPane" prefHeight="607.0" prefWidth="736.0" stylesheets="@../../../cssStyle/Borrow_Books.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.My_booksController">
    <children>
-      <TableView fx:id="myBookTable" layoutX="187.0" layoutY="132.0" prefHeight="343.0" prefWidth="504.0">
+      <Button fx:id="backBtn" layoutX="-10.0" layoutY="-18.0" mnemonicParsing="false" onAction="#onclickBack" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
+         <font>
+            <Font size="56.0" />
+         </font></Button>
+      <TableView fx:id="myBookTable" layoutX="21.0" layoutY="138.0" prefHeight="450.0" prefWidth="702.0">
         <columns>
-          <TableColumn fx:id="colBookId" prefWidth="152.0" text="BookID" />
-            <TableColumn fx:id="colIssuDate" prefWidth="153.0" text="Date_of_issued" />
-            <TableColumn fx:id="colResubmission" prefWidth="196.0" text="Date_of_resubmission." />
+          <TableColumn fx:id="colBookId" prefWidth="160.0" text="BookID" />
+            <TableColumn fx:id="colIssuDate" prefWidth="266.0" text="Date_of_issued" />
+            <TableColumn fx:id="colResubmission" prefWidth="275.0" text="Date_of_resubmission." />
         </columns>
       </TableView>
-      <Button fx:id="backBtn" layoutX="42.0" layoutY="56.0" mnemonicParsing="false" onAction="#onclickBack" text="Back" />
    </children>
 </AnchorPane>

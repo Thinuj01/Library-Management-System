@@ -5,12 +5,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="AdminPane" prefHeight="800.0" prefWidth="1280.0" styleClass="root" stylesheets="@../../../cssStyle/Admin_Interface.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.AdminInterfaceController">
+<AnchorPane fx:id="AdminPane" prefHeight="800.0" prefWidth="1280.0" styleClass="root" stylesheets="@../../../cssStyle/Admin_Interface.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.AdminInterfaceController">
    <children>
       <Label fx:id="lblProUser" layoutX="118.0" layoutY="129.0" prefHeight="17.0" prefWidth="109.0" text="User" textFill="WHITE">
          <font>
@@ -28,12 +27,12 @@
             <TableColumn fx:id="colLocation" prefWidth="111.0" text="Location" />
         </columns>
       </TableView>
-      <Button layoutX="47.0" layoutY="211.0" mnemonicParsing="false" onAction="#OnclickAddBook" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Add a New Book" textFill="WHITE">
+      <Button layoutX="60.0" layoutY="282.0" mnemonicParsing="false" onAction="#OnclickAddBook" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Add a New Book" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="268.0" mnemonicParsing="false" onAction="#OnclickModify" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Modify Book Details" textFill="WHITE">
+      <Button layoutX="62.0" layoutY="339.0" mnemonicParsing="false" onAction="#OnclickModify" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Modify Book Details" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
@@ -47,7 +46,7 @@
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font></TextField>
-      <Button fx:id="delBookBtn" layoutX="51.0" layoutY="328.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Delete Book" textFill="WHITE">
+      <Button fx:id="delBookBtn" layoutX="62.0" layoutY="394.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #3B8481; -fx-background-radius: 30;" text="Delete Book" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
@@ -62,49 +61,45 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="logOutBtn" layoutX="387.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="21.0" prefWidth="47.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" textAlignment="CENTER" textFill="#030303" wrapText="true">
-         <font>
-            <Font name="MS Reference Sans Serif" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fx:id="picLogOut" fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="exitBtn1" layoutX="1161.0" layoutY="115.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="49.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-background-radius: 30;" textFill="WHITE">
-         <font>
-            <Font name="MS Reference Sans Serif" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fx:id="picExit" fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="deliveryBtn" layoutX="51.0" layoutY="422.0" mnemonicParsing="false" onAction="#onClickDeliveryBook" prefHeight="74.0" prefWidth="109.0" style="-fx-background-color: #175dad; -fx-background-radius: 30;" text="Issuing Books" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="logOutBtn" layoutX="387.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="35.0" prefWidth="109.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" text="Logout" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="acceptanceBtn" layoutX="173.0" layoutY="422.0" mnemonicParsing="false" onAction="#onClickAcceptanceBook" prefHeight="74.0" prefWidth="109.0" style="-fx-background-color: #175dad; -fx-background-radius: 30;" text="Return books" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="exitBtn1" layoutX="1117.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #f34235; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="delMemberBtn" layoutX="47.0" layoutY="675.0" mnemonicParsing="false" onAction="#onClickDelMember" prefHeight="66.0" prefWidth="225.0" style="-fx-background-color: #B20E0E; -fx-background-radius: 30;" text="Delete Member" textFill="WHITE">
+      <Button fx:id="deliveryBtn" layoutX="60.0" layoutY="487.0" mnemonicParsing="false" onAction="#onClickDeliveryBook" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #175dad; -fx-background-radius: 30;" text="Issuing Books" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="memberBtn" layoutX="47.0" layoutY="580.0" mnemonicParsing="false" onAction="#onclickMember" prefHeight="74.0" prefWidth="225.0" style="-fx-background-color: #6508A4; -fx-background-radius: 30;" text="Member Participations" textFill="WHITE">
+      <Button fx:id="acceptanceBtn" layoutX="60.0" layoutY="541.0" mnemonicParsing="false" onAction="#onClickAcceptanceBook" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #175dad; -fx-background-radius: 30;" text="Return books" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
+      <Button fx:id="delMemberBtn" layoutX="60.0" layoutY="675.0" mnemonicParsing="false" onAction="#onClickDelMember" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #6508A4; -fx-background-radius: 30;" text="Delete Member" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="memberBtn" layoutX="60.0" layoutY="621.0" mnemonicParsing="false" onAction="#onclickMember" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #6508A4; -fx-background-radius: 30;" text="Member Participations" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="l_date" layoutX="569.0" layoutY="123.0" prefHeight="35.0" prefWidth="142.0" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="l_time" layoutX="711.0" layoutY="123.0" prefHeight="35.0" prefWidth="205.0" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

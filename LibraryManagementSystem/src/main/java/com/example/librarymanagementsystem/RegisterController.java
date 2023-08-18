@@ -37,7 +37,12 @@ public class RegisterController {
 
     private String SYSTEM_PASSWORD=findPassword();
     @FXML
-    public void onClickBack(){}
+    public void onClickBack(){
+        Stage stage;
+        stage = (Stage) RegisterPane.getScene().getWindow();
+        stage.close();
+        LoadWindow.loadInterFace("Login.fxml","Login", 1280, 800);
+    }
 
     protected String getSYSTEM_PASSWORD(){
         return findPassword();
@@ -57,7 +62,7 @@ public class RegisterController {
             String RePassword = txtRePassword.getText();
             String Role="";
             if (tgRole.getSelectedToggle().equals(rdbAdmin)) {
-                 SYSTEM_PASSWORD="MiniProject1234";//findPassword();
+                 SYSTEM_PASSWORD=findPassword();//findPassword();
                 String userInput = JOptionPane.showInputDialog("Enter System Control Password:");
                 if (SYSTEM_PASSWORD.equals(userInput)) {
                     Role = "Admin";
@@ -111,6 +116,7 @@ public class RegisterController {
             ResultSet rst = stm.executeQuery(query);
             rst.next();
             ps = rst.getString(1);
+            System.out.println(ps);
 
         }catch(Exception e){
             System.out.println(e);
