@@ -10,6 +10,8 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     protected static String DB_USERNAME = "root";
     //protected static String DB_PASSWORD = "123456789";
+    protected boolean getUserID=true;
+    protected static boolean openDelete=false;
     protected static String DB_PASSWORD = "Thinuja21033";
     @Override
     public void start(Stage stage) throws IOException {

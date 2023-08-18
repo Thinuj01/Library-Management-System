@@ -41,7 +41,12 @@ public class ModifyBookController implements Initializable {
     private TextField txtMLocation;
 
     @FXML
-    public void onClickBack(){}
+    public void onClickBack(){
+        Stage stage;
+        stage = (Stage) ModifyBookPane.getScene().getWindow();
+        stage.close();
+        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+    }
 
 
 

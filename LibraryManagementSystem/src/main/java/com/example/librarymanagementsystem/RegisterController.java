@@ -1,16 +1,15 @@
 package com.example.librarymanagementsystem;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
-import java.io.IOException;
-import java.net.URL;
+import javax.swing.*;
 import java.sql.*;
-import java.util.ResourceBundle;
 
 public class RegisterController {
     @FXML
@@ -35,8 +34,22 @@ public class RegisterController {
     private Label lblWarning;
     @FXML
     private AnchorPane RegisterPane;
+
+    private String SYSTEM_PASSWORD=findPassword();
     @FXML
-    public void onClickBack(){}
+    public void onClickBack(){
+        Stage stage;
+        stage = (Stage) RegisterPane.getScene().getWindow();
+        stage.close();
+        LoadWindow.loadInterFace("Login.fxml","Login", 1280, 800);
+    }
+
+    protected String getSYSTEM_PASSWORD(){
+        return findPassword();
+    }
+    protected void setSYSTEM_PASSWORD(String ps){
+        SYSTEM_PASSWORD=ps;
+    }
 
     @FXML
     protected void onClickRegistered() throws SQLException {
@@ -47,12 +60,27 @@ public class RegisterController {
             String UserName = txtUserName.getText();
             String Password = txtPassword.getText();
             String RePassword = txtRePassword.getText();
-            String Role = "";
-            if (rdbAdmin.isSelected()) {
+            String Role="";
+            if (tgRole.getSelectedToggle().equals(rdbAdmin)) {
+                 SYSTEM_PASSWORD=findPassword();//findPassword();
+                String userInput = JOptionPane.showInputDialog("Enter System Control Password:");
+                if (SYSTEM_PASSWORD.equals(userInput)) {
+                    Role = "Admin";
+                } else {
+                    JOptionPane.showMessageDialog(null, "Password is Incorrect!!!", "Error", JOptionPane.ERROR_MESSAGE);
+                    Stage stage;
+                    stage =(Stage) RegisterPane.getScene().getWindow();
+                    stage.close();
+                    LoadWindow.loadInterFace("Login.fxml","Login",1280,800);
+                }
                 Role = "Admin";
-            } else {
+
+
+            } else if(tgRole.getSelectedToggle().equals(rdbUser)){
                 Role = "User";
+
             }
+        try{
             if (Password.equals(RePassword)) {
 
                 String sql = "INSERT INTO login" + "(FName,LName,BOD,UserName,Password,Role)" +
@@ -62,19 +90,38 @@ public class RegisterController {
                 Connection connection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
                 Statement statement2 = connection2.createStatement();
                 statement2.execute(sql);
+                Stage stage;
+                stage = (Stage) RegisterPane.getScene().getWindow();
+                stage.close();
 
                 statement2.close();
                 connection2.close();
-                Stage stage;
-                stage =(Stage) RegisterPane.getScene().getWindow();
-                stage.close();
-            }
-
-            else{
+                LoadWindow.loadInterFace("Login.fxml","Login",1280,800);
+            } else {
                 lblWarning.setText("Passwords dosen't match");
+            }
+        }catch(Exception e){
+            System.out.println("kasun"+e);
         }
 
 
+    }
+
+    private String findPassword(){
+        String query = "select * from syPassword";
+        String ps="";
+        try{
+            Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
+            Statement stm = con1.createStatement();
+            ResultSet rst = stm.executeQuery(query);
+            rst.next();
+            ps = rst.getString(1);
+            System.out.println(ps);
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return ps;
     }
 
 

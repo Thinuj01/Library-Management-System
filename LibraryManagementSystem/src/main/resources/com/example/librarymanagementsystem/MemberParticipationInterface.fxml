@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="memberPane1" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.MemberParticipationController">
+   <children>
+      <TableView fx:id="usersTable" layoutX="358.0" layoutY="148.0" prefHeight="515.0" prefWidth="830.0">
+        <columns>
+          <TableColumn fx:id="colUserID" prefWidth="132.0" text="User ID" />
+          <TableColumn fx:id="colFname" prefWidth="146.0" text="First Name" />
+            <TableColumn fx:id="colLname" prefWidth="148.0" text="Last Name" />
+            <TableColumn fx:id="colDob" prefWidth="137.0" text="DOB" />
+            <TableColumn fx:id="colUserName" prefWidth="129.0" text="User Name" />
+            <TableColumn fx:id="ColRole" prefWidth="137.0" text="Role" />
+        </columns>
+      </TableView>
+      <Text layoutX="88.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="userIDTextBox" layoutX="32.0" layoutY="217.0" promptText="User ID" />
+      <Button fx:id="submitBtn" layoutX="88.0" layoutY="289.0" mnemonicParsing="false" onAction="#onClickSubmit" text="Submit" />
+      <TextField fx:id="searchText1" layoutX="640.0" layoutY="75.0" prefHeight="31.0" prefWidth="330.0" promptText="Search" />
+      <Button fx:id="selectBtn" layoutX="1090.0" layoutY="711.0" mnemonicParsing="false" onAction="#onClickSelect" text="Select" />
+      <AnchorPane fx:id="memberPane2" layoutX="297.0" layoutY="53.0" prefHeight="635.0" prefWidth="968.0">
+         <children>
+            <TableView fx:id="bookTable" layoutX="59.0" layoutY="95.0" prefHeight="515.0" prefWidth="830.0">
+              <columns>
+                <TableColumn fx:id="colBookID" prefWidth="162.0" text="BookId" />
+                <TableColumn fx:id="coliDate" prefWidth="184.0" text="Issued Date" />
+                  <TableColumn fx:id="colResubDate" prefWidth="167.0" text="Resubmition Date" />
+                  <TableColumn fx:id="colRDate" prefWidth="124.0" text="Recived date" />
+                  <TableColumn fx:id="colFine" minWidth="0.0" prefWidth="110.0" text="Fine" />
+                  <TableColumn fx:id="colStatus" prefWidth="82.0" resizable="false" text="Status" />
+              </columns>
+            </TableView>
+            <TextField fx:id="searchText2" layoutX="341.0" layoutY="26.0" prefHeight="31.0" prefWidth="330.0" promptText="Search" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="backBtn1" layoutX="71.0" layoutY="639.0" mnemonicParsing="false" onAction="#onClickBack" text="Back" />
+      <Button fx:id="backBtn2" layoutX="81.0" layoutY="649.0" mnemonicParsing="false" onAction="#onClickBack2" text="Back" />
+      <Button fx:id="delMemberBtn" layoutX="60.0" layoutY="349.0" mnemonicParsing="false" onAction="#onClickDelMember" prefHeight="73.0" prefWidth="123.0" text="Delete Member" />
+   </children>
+</AnchorPane>

@@ -4,12 +4,10 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ModifyBookPane" prefHeight="800.0" prefWidth="650.0" styleClass="root" stylesheets="@../../../cssStyle/ModifyBook.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.ModifyBookController">
+<AnchorPane fx:id="ModifyBookPane" prefHeight="800.0" prefWidth="650.0" styleClass="root" stylesheets="@../../../cssStyle/ModifyBook.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.ModifyBookController">
    <children>
       <TextField fx:id="txtMBookID" alignment="CENTER" editable="false" layoutX="192.0" layoutY="208.0" prefHeight="33.0" prefWidth="267.0" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30;">
          <font>
@@ -77,14 +75,10 @@
             <Font name="MS Reference Sans Serif" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fx:id="onClickBack" fitHeight="48.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/arrow.png" />
-               </image>
-            </ImageView>
-         </graphic>
+      <Button layoutX="-27.0" layoutY="-27.0" mnemonicParsing="false" onAction="#onClickBack" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
+         <font>
+            <Font size="63.0" />
+         </font>
       </Button>
       <ChoiceBox fx:id="txtMCategory" layoutX="192.0" layoutY="411.0" prefHeight="33.0" prefWidth="267.0" style="-fx-background-color: #120433; -fx-border-color: #ffffff; -fx-border-radius: 30;" stylesheets="@../../../cssStyle/addbookChoice.css" />
    </children>

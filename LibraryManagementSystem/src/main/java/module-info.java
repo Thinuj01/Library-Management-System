@@ -3,6 +3,8 @@ module com.example.librarymanagementsystem {
     requires javafx.fxml;
     requires java.sql;
     requires java.net.http;
+    requires java.desktop;
+    requires mysql.connector.j;
 
 
     opens com.example.librarymanagementsystem to javafx.fxml;

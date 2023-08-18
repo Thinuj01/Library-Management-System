@@ -1,5 +1,6 @@
 package com.example.librarymanagementsystem;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,11 +18,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Date;
+import java.util.Timer;
 
 import static com.example.librarymanagementsystem.LoginController.Password;
 import static com.example.librarymanagementsystem.LoginController.UserName;
@@ -82,7 +87,13 @@ public class AdminInterfaceController implements Initializable {
     @FXML
     private TextField lblSearch;
 
+    @FXML
+    private Label l_date;
+    @FXML
+    private Label l_time;
 
+
+    public boolean stop = false ;
 
 
     @FXML
@@ -97,6 +108,23 @@ public class AdminInterfaceController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void onclickMember(ActionEvent event) {
+        Stage stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        HelloApplication.openDelete=false;
+        LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Members List",1280,800);
+    }
+
+    @FXML
+    void onClickDelMember(ActionEvent event) {
+        Stage stage = (Stage)AdminPane.getScene().getWindow();
+        stage.close();
+        HelloApplication.openDelete=true;
+        LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Delete Member",1280,800);
+    }
+
 
     @FXML
     void onClickAcceptanceBook(ActionEvent event) {
@@ -130,6 +158,7 @@ public class AdminInterfaceController implements Initializable {
     @FXML
     void OnClickExit(ActionEvent event) {
         try{
+            stop = true;
             Stage stage;
             stage = (Stage)AdminPane.getScene().getWindow();
             stage.close();
@@ -141,6 +170,7 @@ public class AdminInterfaceController implements Initializable {
 
     @FXML
     void OnClickLogOut(ActionEvent event) {
+        stop = true;
         Stage stage;
         stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
@@ -162,7 +192,7 @@ public class AdminInterfaceController implements Initializable {
         stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         try{
-            LoadWindow.loadInterFace("My_books.fxml","My Books",1280, 800);
+            LoadWindow.loadInterFace("My_books.fxml","My Books",736, 607);
         }
         catch(Exception e){
             System.out.println(e);
@@ -239,10 +269,42 @@ public class AdminInterfaceController implements Initializable {
 
         }
 
+        public void dt(){
+            Date d = new Date();
+
+            SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd");
+
+            String dd = sdf.format(d);
+            l_date.setText(dd);
+
+
+        }
+
+
+        public void times(){
+            Thread thread = new Thread(() ->{
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
+                while(!stop){
+                    try{
+                        Thread.sleep(1000);
+                    }catch(Exception e){
+                        System.out.println(e);
+                    }
+                    final String timenow = sdf.format(new Date());
+                    Platform . runLater(() -> {
+                        l_time.setText(timenow);
+                    });
+                }
+            });
+            thread.start();
+        }
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
+            dt();
+            times();
             System.out.println("Thinuja");
             lblProUser.setText(UserName);
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
@@ -259,22 +321,23 @@ public class AdminInterfaceController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        try{
-            Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms",HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
-            String query = "select user_ID from login where UserName=? and Password=?";
-            PreparedStatement pst = con1.prepareStatement(query);
-            pst.setString(1,UserName);
-            pst.setString(2,Password);
-            ResultSet result = pst.executeQuery();
-            result.next();
-            userIDDisplay.setText(String.valueOf(result.getInt(1)));
-            con1.close();
-        }catch(Exception e){
-            System.out.println(e);
+        if(new HelloApplication().getUserID){
+            try {
+                Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
+                String query = "select user_ID from login where UserName=? and Password=?";
+                PreparedStatement pst = con1.prepareStatement(query);
+                pst.setString(1, UserName);
+                pst.setString(2, Password);
+                ResultSet result = pst.executeQuery();
+                result.next();
+                userIDDisplay.setText(String.valueOf(result.getInt(1)));
+                con1.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
-         String uid = userIDDisplay.getText();
 
-
+        new HelloApplication().getUserID=false;
     }
 
     public void loadDataFromDatabase(String Sql) throws SQLException {

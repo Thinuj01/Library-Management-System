@@ -10,15 +10,13 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class LoginController {
-    public static String UserName;
-    public static String Password;
+    public static String UserName = null;
+    public static String Password = null;
     @FXML
     private TextField txtUserName;
     @FXML
@@ -33,6 +31,9 @@ public class LoginController {
 
     @FXML
     private Button visitorBtn;
+
+    @FXML
+    private Button syPasswordChangeBtn;
 
     @FXML
     protected void onClickLogin(){
@@ -85,11 +86,28 @@ public class LoginController {
     @FXML
     void onClickVisitor(ActionEvent event) {
         try{
+            new HelloApplication().getUserID = false;
             UserName="Visitor Account";
             Stage stage = (Stage)AdminPane.getScene().getWindow();
             stage.close();
             LoadWindow.loadInterFace("Visitor_Interface.fxml","Visitor",1280,800);
 
+        }catch(Exception e){
+            System.out.println("kasun"+e);
+        }
+    }
+
+    @FXML
+    void onClickChangeSP(ActionEvent event) {
+        try{
+            String oldPassword = JOptionPane.showInputDialog("Enter Old Password: ");
+            if (oldPassword.equals(new RegisterController().getSYSTEM_PASSWORD())) {
+                String newPassword = JOptionPane.showInputDialog("Enter new Password: ");
+                setSYSTEM_PASSWORD(newPassword);
+                JOptionPane.showMessageDialog(null, "Password SuccessFully Changed!!!", "Congratulation!!!", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Password is Incorrect!!!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }catch(Exception e){
             System.out.println(e);
         }
@@ -97,9 +115,24 @@ public class LoginController {
 
     @FXML
     protected void onClickRegister() throws IOException {
+        Stage stage;
+        stage =(Stage) AdminPane.getScene().getWindow();
+        stage.close();
         LoadWindow.loadInterFace("Register.fxml","Register",650, 800);
     }
 
-
+    private void setSYSTEM_PASSWORD(String ps){
+        String query = "update syPassword set password = ?";
+        try{
+            Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms",HelloApplication.DB_USERNAME,HelloApplication.DB_PASSWORD);
+            PreparedStatement pst = con1.prepareStatement(query);
+            pst.setString(1,ps);
+            pst.executeUpdate();
+            pst.close();
+            con1.close();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
 
 }

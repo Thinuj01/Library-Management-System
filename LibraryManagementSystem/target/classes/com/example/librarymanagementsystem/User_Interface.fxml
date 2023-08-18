@@ -5,13 +5,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="AdminPane" prefHeight="800.0" prefWidth="1280.0" styleClass="root" stylesheets="@../../../cssStyle/Admin_Interface.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.AdminInterfaceController">
+<AnchorPane fx:id="AdminPane" prefHeight="800.0" prefWidth="1280.0" styleClass="root" stylesheets="@../../../cssStyle/Admin_Interface.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarymanagementsystem.AdminInterfaceController">
    <children>
       <Label fx:id="lblProUser" layoutX="118.0" layoutY="129.0" prefHeight="17.0" prefWidth="109.0" text="User" textFill="WHITE">
          <font>
@@ -29,18 +27,6 @@
             <TableColumn fx:id="colLocation" prefWidth="111.0" text="Location" />
         </columns>
       </TableView>
-      <Button fx:id="logOutBtn" layoutX="369.0" layoutY="123.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="23.0" prefWidth="47.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" textAlignment="CENTER" textFill="#030303" wrapText="true">
-         <font>
-            <Font name="MS Reference Sans Serif" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/logout.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <Label alignment="CENTER" layoutX="909.0" layoutY="179.0" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: #3B8481; -fx-background-radius: 25;" text="    Search" textFill="WHITE">
          <font>
             <Font size="18.0" />
@@ -55,18 +41,6 @@
             <Font name="MS Reference Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="exitBtn1" layoutX="1167.0" layoutY="116.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="44.0" prefWidth="42.0" style="-fx-background-color: transparent; -fx-background-radius: 30;" textFill="WHITE">
-         <font>
-            <Font name="MS Reference Sans Serif" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="37.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:/E:/SRT/Library-Management-System/LibraryManagementSystem/src/main/resources/Img/shutdowm.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <Text fill="#f5f0f0" layoutX="196.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User_ID:- ">
          <font>
             <Font name="MS Reference Sans Serif" size="17.0" />
@@ -77,5 +51,24 @@
             <Font size="17.0" />
          </font>
       </Text>
+      <Button fx:id="logOutBtn" layoutX="384.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickLogOut" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #3b8481; -fx-background-radius: 30;" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="exitBtn1" layoutX="1123.0" layoutY="122.0" mnemonicParsing="false" onAction="#OnClickExit" prefHeight="35.0" prefWidth="66.0" style="-fx-background-color: #f34235; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="15.0" />
+         </font></Button>
+      <Label fx:id="l_date" layoutX="562.0" layoutY="122.0" prefHeight="35.0" prefWidth="180.0" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="l_time" layoutX="736.0" layoutY="122.0" prefHeight="35.0" prefWidth="213.0" textFill="WHITE">
+         <font>
+            <Font name="MS Reference Sans Serif" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
