@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.sql.*;
 
-public class RegisterController {
+public class RegisterController extends LoadWindow{
     @FXML
     private TextField txtFName;
     @FXML
@@ -41,7 +41,7 @@ public class RegisterController {
         Stage stage;
         stage = (Stage) RegisterPane.getScene().getWindow();
         stage.close();
-        LoadWindow.loadInterFace("Login.fxml","Login", 1280, 800);
+        loadInterFace("Login.fxml","Login", 1280, 800);
     }
 
     protected String getSYSTEM_PASSWORD(){
@@ -71,9 +71,8 @@ public class RegisterController {
                     Stage stage;
                     stage =(Stage) RegisterPane.getScene().getWindow();
                     stage.close();
-                    LoadWindow.loadInterFace("Login.fxml","Login",1280,800);
+                    loadInterFace("Login.fxml","Login",1280,800);
                 }
-                Role = "Admin";
 
 
             } else if(tgRole.getSelectedToggle().equals(rdbUser)){
@@ -96,7 +95,7 @@ public class RegisterController {
 
                 statement2.close();
                 connection2.close();
-                LoadWindow.loadInterFace("Login.fxml","Login",1280,800);
+                loadInterFace("Login.fxml","Login",1280,800);
             } else {
                 lblWarning.setText("Passwords dosen't match");
             }

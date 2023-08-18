@@ -15,7 +15,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class AddBookController implements Initializable {
+public class AddBookController extends LoadWindow implements Initializable {
 
     @FXML
     private TextField txtBookName;
@@ -45,7 +45,7 @@ public class AddBookController implements Initializable {
         Stage stage;
         stage = (Stage) AddBookPane.getScene().getWindow();
         stage.close();
-        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+        loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
     }
 
     private PreparedStatement pst = null;
@@ -83,7 +83,7 @@ public class AddBookController implements Initializable {
             Stage stage;
             stage =(Stage) AddBookPane.getScene().getWindow();
             stage.close();
-            LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface",1280, 800);
+            loadInterFace("Admin_Interface.fxml","Admin_Interface",1280, 800);
 
         }
 

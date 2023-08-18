@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 import static com.example.librarymanagementsystem.LoginController.Password;
 import static com.example.librarymanagementsystem.LoginController.UserName;
 
-public class My_booksController implements Initializable {
+public class My_booksController extends LoadWindow implements Initializable {
 
     @FXML
     private AnchorPane myBookPane;
@@ -48,7 +48,7 @@ public class My_booksController implements Initializable {
         Stage stage;
         stage = (Stage) myBookPane.getScene().getWindow();
         stage.close();
-        LoadWindow.loadInterFace("User_Interface.fxml","User_Interface", 1280, 800);
+        loadInterFace("User_Interface.fxml","User_Interface", 1280, 800);
 
     }
 

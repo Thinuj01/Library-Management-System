@@ -15,6 +15,9 @@ import java.net.URL;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.ResourceBundle;
 import java.util.Date;
@@ -77,14 +80,14 @@ public class IssueBooksController implements Initializable {
     @FXML
     protected void onClickIssue(){
         try {
-            String id = txtUserID.getText().toString();
+            String id = txtUserID.getText();
             System.out.println(id);
             int userID = Integer.parseInt(id);
 
-            /*DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-            Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.DATE,7);*/
-            String sDate = "2023-08-20";//dateFormat.format(cal.getTime());
+            LocalDate currentDate = LocalDate.now();
+            LocalDate newDate = currentDate.plusDays(7);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String sDate  = newDate.format(formatter);
 
             String sql = "Insert into user_books (UserId,BookID,date_of_issued,date_of_resubmition,amount_of_fine) values(" + userID + ",\"" + lblBookID.getText() + "\",\"" + lblIssueDate.getText() + "\",\""+sDate+"\",0.0)";
             System.out.println(sql);

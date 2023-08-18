@@ -14,7 +14,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
 
-public class LoginController {
+public class LoginController extends LoadWindow{
     public static String UserName = null;
     public static String Password = null;
     @FXML
@@ -43,7 +43,6 @@ public class LoginController {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from login");
-
             boolean login_Status= false;
             while(resultSet.next()){
                 String x = resultSet.getString("UserName");
@@ -55,7 +54,7 @@ public class LoginController {
                             Stage stage;
                             stage = (Stage) AdminPane.getScene().getWindow();
                             stage.close();
-                            LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+                            loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
 
                         break;
                     }
@@ -63,7 +62,7 @@ public class LoginController {
                         Stage stage;
                         stage = (Stage) AdminPane.getScene().getWindow();
                         stage.close();
-                        LoadWindow.loadInterFace("User_Interface.fxml","User_Interface",1280, 800);
+                        loadInterFace("User_Interface.fxml","User_Interface",1280, 800);
                     }
 //
                 }
@@ -90,7 +89,7 @@ public class LoginController {
             UserName="Visitor Account";
             Stage stage = (Stage)AdminPane.getScene().getWindow();
             stage.close();
-            LoadWindow.loadInterFace("Visitor_Interface.fxml","Visitor",1280,800);
+            loadInterFace("Visitor_Interface.fxml","Visitor",1280,800);
 
         }catch(Exception e){
             System.out.println("kasun"+e);
@@ -118,7 +117,7 @@ public class LoginController {
         Stage stage;
         stage =(Stage) AdminPane.getScene().getWindow();
         stage.close();
-        LoadWindow.loadInterFace("Register.fxml","Register",650, 800);
+        loadInterFace("Register.fxml","Register",650, 800);
     }
 
     private void setSYSTEM_PASSWORD(String ps){

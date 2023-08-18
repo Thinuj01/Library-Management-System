@@ -32,7 +32,7 @@ import static com.example.librarymanagementsystem.LoginController.Password;
 import static com.example.librarymanagementsystem.LoginController.UserName;
 
 
-public class AdminInterfaceController implements Initializable {
+public class AdminInterfaceController extends LoadWindow implements Initializable {
     @FXML
     private Label lblProUser;
 
@@ -102,7 +102,7 @@ public class AdminInterfaceController implements Initializable {
             Stage stage;
             stage =(Stage) AdminPane.getScene().getWindow();
             stage.close();
-            LoadWindow.loadInterFace("AddBook.fxml","Add Book",650, 800);
+            loadInterFace("AddBook.fxml","Add Book",650, 800);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -114,7 +114,7 @@ public class AdminInterfaceController implements Initializable {
         Stage stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         HelloApplication.openDelete=false;
-        LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Members List",1280,800);
+        loadInterFace("MemberParticipationInterface.fxml","Members List",1280,800);
     }
 
     @FXML
@@ -122,7 +122,7 @@ public class AdminInterfaceController implements Initializable {
         Stage stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         HelloApplication.openDelete=true;
-        LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Delete Member",1280,800);
+        loadInterFace("MemberParticipationInterface.fxml","Delete Member",1280,800);
     }
 
 
@@ -131,7 +131,7 @@ public class AdminInterfaceController implements Initializable {
         Stage stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         try{
-            LoadWindow.loadInterFace("ReturnBook.fxml","Returning Book",650, 800);
+            loadInterFace("ReturnBook.fxml","Returning Book",650, 800);
 
         }catch(Exception e){
             System.out.println(e);
@@ -147,7 +147,7 @@ public class AdminInterfaceController implements Initializable {
         stage.close();
 
         try{
-            LoadWindow.loadInterFace("issueBooks.fxml","Issuing Book",900, 650);
+            loadInterFace("issueBooks.fxml","Issuing Book",900, 650);
 
 
         }catch(Exception e){
@@ -176,7 +176,7 @@ public class AdminInterfaceController implements Initializable {
         stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         try{
-            LoadWindow.loadInterFace("Login.fxml","Hello!",1280, 800);
+            loadInterFace("Login.fxml","Hello!",1280, 800);
         }
         catch(Exception e){
             System.out.println(e);
@@ -193,7 +193,7 @@ public class AdminInterfaceController implements Initializable {
         stage = (Stage)AdminPane.getScene().getWindow();
         stage.close();
         try{
-            LoadWindow.loadInterFace("My_books.fxml","My Books",736, 607);
+            loadInterFace("My_books.fxml","My Books",736, 607);
         }
         catch(Exception e){
             System.out.println(e);
@@ -221,7 +221,7 @@ public class AdminInterfaceController implements Initializable {
         Stage stage;
         stage =(Stage) AdminPane.getScene().getWindow();
         stage.close();
-        LoadWindow.loadInterFace("ModifyBook.fxml","Modify Book",650, 800);
+        loadInterFace("ModifyBook.fxml","Modify Book",650, 800);
     }
 
     private Connection con = null;
@@ -306,7 +306,6 @@ public class AdminInterfaceController implements Initializable {
         try {
             dt();
             times();
-            System.out.println("Thinuja");
             lblProUser.setText(UserName);
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", HelloApplication.DB_USERNAME, HelloApplication.DB_PASSWORD);
             data = FXCollections.observableArrayList();

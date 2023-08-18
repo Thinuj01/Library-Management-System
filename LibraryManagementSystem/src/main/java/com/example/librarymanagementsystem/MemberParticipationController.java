@@ -16,7 +16,7 @@ import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class MemberParticipationController implements Initializable {
+public class MemberParticipationController extends LoadWindow implements Initializable {
 
     @FXML
     private AnchorPane memberPane1;
@@ -102,7 +102,7 @@ public class MemberParticipationController implements Initializable {
         Stage stage1 = (Stage) memberPane1.getScene().getWindow();
         stage1.close();
         new HelloApplication().openDelete = false;
-        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+        loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
 
     }
 
@@ -110,7 +110,7 @@ public class MemberParticipationController implements Initializable {
     void onClickBack2(ActionEvent event) {
         Stage stage2 = (Stage) memberPane2.getScene().getWindow();
         stage2.close();
-        LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Member Participation",1280,800);
+        loadInterFace("MemberParticipationInterface.fxml","Member Participation",1280,800);
     }
 
     @FXML
@@ -149,7 +149,7 @@ public class MemberParticipationController implements Initializable {
                     Stage stage;
                     stage = (Stage)memberPane1.getScene().getWindow();
                     stage.close();
-                    LoadWindow.loadInterFace("MemberParticipationInterface.fxml","Delete Member", 1280, 800);
+                    loadInterFace("MemberParticipationInterface.fxml","Delete Member", 1280, 800);
                 }catch(Exception e){
                     System.out.println(e);
                 }

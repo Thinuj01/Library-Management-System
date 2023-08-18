@@ -13,7 +13,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class ModifyBookController implements Initializable {
+public class ModifyBookController extends LoadWindow implements Initializable {
     @FXML
     private AnchorPane ModifyBookPane;
 
@@ -45,7 +45,7 @@ public class ModifyBookController implements Initializable {
         Stage stage;
         stage = (Stage) ModifyBookPane.getScene().getWindow();
         stage.close();
-        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+        loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
     }
 
 
@@ -70,7 +70,7 @@ public class ModifyBookController implements Initializable {
         Stage stage;
         stage =(Stage) ModifyBookPane.getScene().getWindow();
         stage.close();
-        LoadWindow.loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
+        loadInterFace("Admin_Interface.fxml","Admin_Interface", 1280, 800);
 
 
 
